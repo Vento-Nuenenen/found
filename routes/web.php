@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +14,6 @@
 */
 
 Route::get('/', 'FoundController@index')->name('found');
-
 
 Auth::routes();
 
