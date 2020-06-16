@@ -13,10 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'FoundController@index')->name('found');
+Route::get('/', 'Frontend\FrontendController@index')->name('frontend');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
+    Route::get('/overwatch', 'Backend\OverwatchController@index')->name('overwatch');
+
+    Route::any('/users', 'UsersController@index')->name('users');
+    Route::get('/users/add', 'UsersController@create')->name('add-users');
+    Route::post('/users/store', 'UsersController@store')->name('store-users');
+    Route::get('/users/edit/{uid}', 'UsersController@edit')->name('edit-users');
+    Route::post('/users/update/{uid}', 'UsersController@update')->name('update-users');
+    Route::get('/users/destroy/{uid}', 'UsersController@destroy')->name('destroy-users');
 });
