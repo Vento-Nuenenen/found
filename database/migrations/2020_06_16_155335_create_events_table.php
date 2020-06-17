@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string('event_name');
             $table->dateTime('event_date');
+            $table->boolean('event_active');
             $table->timestamps();
         });
     }

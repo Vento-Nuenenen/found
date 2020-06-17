@@ -9,7 +9,52 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        @if(!Auth::guest())
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Artikel nach Gruppen
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item {{ Request::is('users/')}}" href="{{ url('/users') }}">
+                            Benutzer
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item {{ Request::is('groups/')}}" href="{{ url('/groups') }}">
+                            Gruppen
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item {{ Request::is('participations/')}}" href="{{ url('/participations') }}">
+                            Teilnehmer
+                        </a>
+                        <a class="dropdown-item {{ Request::is('passed/')}}" href="{{ url('/passed') }}">
+                            Bestanden
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item {{ Request::is('numbers/')}}" href="{{ url('/numbers') }}">
+                            Notfallnummern
+                        </a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Artikel nach Anlass
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item {{ Request::is('points/')}}" href="{{ url('/points') }}">
+                            Punkte übersicht
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item {{ Request::is('transactions/')}}" href="{{ url('/transactions') }}">
+                            Punkte transaktionen
+                        </a>
+                    </div>
+                </li>
+            </ul>
+
+            @if(!Auth::guest())
             <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -77,7 +122,7 @@
                         </div>
                     </li>
                 </ul>
-        @endif
+            @endif
 
         <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
