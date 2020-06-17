@@ -18,7 +18,7 @@ class GroupsSeeder extends Seeder
             $group = Group::where('group_name', '=', $group_name)->first();
 
             if($group == null){
-                $group = Event::create(['group_name' => $group_name, 'group_active' => true]);
+                $group = Group::create(['group_name' => $group_name, 'group_active' => true]);
                 $group->save();
             }
         }
