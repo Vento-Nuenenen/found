@@ -14487,7 +14487,19 @@ select.selectpicker {
   background-color: lime;
 }
 
+.text-color-positiv:hover {
+  background-color: #007d00;
+}
+
 .text-color-negativ {
   background-color: red;
+}
+
+.text-color-negativ:hover {
+  background-color: #c81400;
+}
+
+.dropdown-item:hover {
+  background-color: #b7dbff;
 }
 
