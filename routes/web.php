@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::post('/groups/update/{gid}', 'Backend\GroupsController@update')->name('update-groups');
     Route::get('/groups/destroy/{gid}', 'Backend\GroupsController@destroy')->name('destroy-groups');
 
-    Route::any('/events', 'Backend\EventsController@index')->name('v');
+    Route::any('/events', 'Backend\EventsController@index')->name('events');
     Route::get('/events/add', 'Backend\EventsController@create')->name('add-events');
     Route::post('/events/store', 'Backend\EventsController@store')->name('store-events');
     Route::get('/events/edit/{eid}', 'Backend\EventsController@edit')->name('edit-events');
