@@ -37,17 +37,15 @@
                     </div>
                 </div>
 
-                <div class="form-group has-feedback row {{ $errors->has('group_active') ? ' has-error ' : '' }}">
-                    {!! Form::label('group_active', 'Sichtbar?', array('class' => 'col-md-3 control-label')); !!}
+                <div class="form-group has-feedback row {{ $errors->has('group_logo') ? ' has-error ' : '' }}">
+                    {!! Form::label('group_logo', 'Gruppenlogo', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            <div class="input-group">
-                                <input id="group_active" name="group_active" type="checkbox" data-toggle="toggle" data-on="Ja" data-off="Nein" data-onstyle="success" data-offstyle="danger" {{ ($groups->group_active == 1) ? 'checked' : '' }}>
-                            </div>
+                            <input type="file" accept="image/*" id="group_logo" name="group_logo" />
                         </div>
-                        @if ($errors->has('group_active'))
+                        @if ($errors->has('group_logo'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('group_active') }}</strong>
+                                <strong>{{ $errors->first('group_logo') }}</strong>
                             </span>
                         @endif
                     </div>

@@ -35,25 +35,35 @@
             <div class="card-body table-responsive">
                 <table class="table table-hover">
                     <thead>
-                    <th>
-                        Gruppenname
-                    </th>
-                    <th>
-                        Optionen
-                    </th>
+                        <th>
+                            Gruppenname
+                        </th>
+                        <th>
+                            Sichtbar?
+                        </th>
+                        <th>
+                            Optionen
+                        </th>
                     </thead>
                     <tbody>
-                    @foreach($groups as $group)
-                        <tr>
-                            <td>
-                                {{ $group->group_name }}
-                            </td>
-                            <td>
-                                <button onclick="location.href='{{ route('edit-groups',$group->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>
-                                <button onclick="location.href='{{ route('destroy-groups',$group->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-remove"></span></button>
-                            </td>
-                        </tr>
-                    @endforeach
+                        @foreach($groups as $group)
+                            <tr>
+                                <td>
+                                    {{ $group->group_name }}
+                                </td>
+                                <td>
+                                    @if($group->group_active == true)
+                                        Ja
+                                    @else
+                                        Nein
+                                    @endif
+                                </td>
+                                <td>
+                                    <button onclick="location.href='{{ route('edit-groups',$group->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>
+                                    <button onclick="location.href='{{ route('destroy-groups',$group->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-remove"></span></button>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -12,7 +12,7 @@
             <div class="card-header">
                 <h5 class="float-left">Gruppe erstellen</h5>
 
-                <a href="{{ route('groups') }}">Zurück zu Gruppen</a>
+                <a href="{{ route('groups') }}" class="float-right">Zurück zu Gruppen</a>
             </div>
             <div class="card-body">
                 {!! Form::open(array('route' => 'store-groups', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
@@ -37,15 +37,15 @@
                     </div>
                 </div>
 
-                <div class="form-group has-feedback row {{ $errors->has('group_logo') ? ' has-error ' : '' }}">
-                    {!! Form::label('group_logo', 'Gruppenlogo', array('class' => 'col-md-3 control-label')); !!}
+                <div class="form-group has-feedback row {{ $errors->has('group_active') ? ' has-error ' : '' }}">
+                    {!! Form::label('group_active', 'Sichtbar?', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            <input type="file" accept="image/*" id="group_logo" name="group_logo" />
+                            <input id="group_active" name="group_active" type="checkbox" data-toggle="toggle" data-on="Ja" data-off="Nein" data-onstyle="success" data-offstyle="danger" checked>
                         </div>
-                        @if ($errors->has('group_logo'))
+                        @if ($errors->has('group_active'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('group_logo') }}</strong>
+                                <strong>{{ $errors->first('group_active') }}</strong>
                             </span>
                         @endif
                     </div>

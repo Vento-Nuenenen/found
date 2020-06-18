@@ -83,11 +83,11 @@
                                 Item Gruppen
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('admin/groups/')}}" href="{{ url('/admin/groups') }}">
+                            <a class="dropdown-item {{ Request::is('admin/events/')}}" href="{{ url('/admin/events') }}">
                                 Item Events
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('admin/groups/')}}" href="{{ url('/admin/groups') }}">
+                            <a class="dropdown-item {{ Request::is('admin/items/')}}" href="{{ url('/admin/items') }}">
                                 Items
                             </a>
                         </div>

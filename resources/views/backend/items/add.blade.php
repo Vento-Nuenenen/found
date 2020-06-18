@@ -10,19 +10,19 @@
 
         <div class="card">
             <div class="card-header">
-                <h5 class="float-left">Gruppe bearbeiten</h5>
+                <h5 class="float-left">Gruppe erstellen</h5>
 
-                <a href="{{ route('groups') }}" class="float-right">Zurück zu Gruppen</a>
+                <a href="{{ route('groups') }}">Zurück zu Gruppen</a>
             </div>
             <div class="card-body">
-                {!! Form::open(array('route' => ['update-groups',$groups->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
+                {!! Form::open(array('route' => 'store-groups', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
                 {!! csrf_field() !!}
 
                 <div class="form-group has-feedback row {{ $errors->has('group_name') ? ' has-error ' : '' }}">
                     {!! Form::label('group_name', 'Gruppenname', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::text('group_name', old('group_name', $groups->group_name ?? null), array('id' => 'group_name', 'class' => 'form-control', 'placeholder' => 'Gruppenname', 'required')) !!}
+                            {!! Form::text('group_name', NULL, array('id' => 'group_name', 'class' => 'form-control', 'placeholder' => 'Gruppenname', 'required')) !!}
                             <div class="input-group-append">
                                 <label class="input-group-text" for="group_name">
                                     <i class="fa fa-group" aria-hidden="true"></i>
@@ -37,23 +37,21 @@
                     </div>
                 </div>
 
-                <div class="form-group has-feedback row {{ $errors->has('group_active') ? ' has-error ' : '' }}">
-                    {!! Form::label('group_active', 'Sichtbar?', array('class' => 'col-md-3 control-label')); !!}
+                <div class="form-group has-feedback row {{ $errors->has('group_logo') ? ' has-error ' : '' }}">
+                    {!! Form::label('group_logo', 'Gruppenlogo', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            <div class="input-group">
-                                <input id="group_active" name="group_active" type="checkbox" data-toggle="toggle" data-on="Ja" data-off="Nein" data-onstyle="success" data-offstyle="danger" {{ ($groups->group_active == 1) ? 'checked' : '' }}>
-                            </div>
+                            <input type="file" accept="image/*" id="group_logo" name="group_logo" />
                         </div>
-                        @if ($errors->has('group_active'))
+                        @if ($errors->has('group_logo'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('group_active') }}</strong>
+                                <strong>{{ $errors->first('group_logo') }}</strong>
                             </span>
                         @endif
                     </div>
                 </div>
 
-                {!! Form::button('Gruppe aktualisieren', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
+                {!! Form::button('Gruppe erstellen', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
                 {!! Form::close() !!}
             </div>
         </div>
