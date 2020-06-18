@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Group;
 use DB;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class GroupsController extends Controller
                 ->where('groups.group_name', 'LIKE', "%$search_string%")->get();
         }
 
-        return view('groups.groups', ['groups' => $groups]);
+        return view('backend.groups.groups', ['groups' => $groups]);
     }
     /**
      * Show the form for creating a new resource.
@@ -32,7 +33,7 @@ class GroupsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('groups.add');
+        return view('backend.groups.add');
     }
 
     /**
@@ -44,15 +45,12 @@ class GroupsController extends Controller
      */
     public function store(Request $request){
         $group_name = $request->input('group_name');
+        $group_active = $request->
 
-        if($request->file('tn_img')){
-            $logo_name = time() .'.' . $request->file('group_logo')->extension();
-            $request->file('group_logo')->move(storage_path('app/public/img'), $logo_name);
-        }else{
-            $logo_name = null;
-        }
-
-        DB::table('groups')->insert(['group_name' => $group_name, 'logo_file_name' => $logo_name]);
+        Group::create([
+            'group_name' => $group_name,
+            'group_active' =>
+        ]);
 
         return redirect()->back()->with('message', 'Gruppe wurde erstellt.');
     }
@@ -67,7 +65,7 @@ class GroupsController extends Controller
     public function edit($gid){
         $groups = DB::table('groups')->where('id', '=', $gid)->first();
 
-        return view('groups.edit', ['groups' => $groups]);
+        return view('backend.groups.edit', ['groups' => $groups]);
     }
     /**
      * Update the specified resource in storage.

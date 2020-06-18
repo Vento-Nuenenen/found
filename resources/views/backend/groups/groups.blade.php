@@ -28,7 +28,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h5 class="float-left">Alle Gruppen</h5>
+                <h5 class="float-left">Item Gruppen</h5>
 
                 <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
             </div>
@@ -39,9 +39,6 @@
                         Gruppenname
                     </th>
                     <th>
-                        Gruppen-Logo
-                    </th>
-                    <th>
                         Optionen
                     </th>
                     </thead>
@@ -50,9 +47,6 @@
                         <tr>
                             <td>
                                 {{ $group->group_name }}
-                            </td>
-                            <td>
-                                <img width="80px" src="{{ asset('storage/img/' . $group->logo_file_name) }}">
                             </td>
                             <td>
                                 <button onclick="location.href='{{ route('edit-groups',$group->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>

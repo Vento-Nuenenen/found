@@ -29,7 +29,7 @@ class UsersController extends Controller
                 ->orWhere('first_name', 'LIKE', "%$search_string%")->get();
         }
 
-        return view('users.users', ['users' => $users]);
+        return view('backend.users.users', ['users' => $users]);
     }
     /**
      * Show the form for creating a new resource.
@@ -38,7 +38,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.add');
+        return view('backend.users.add');
     }
     /**
      * Store a newly created resource in storage.
@@ -80,7 +80,7 @@ class UsersController extends Controller
     {
         $users = DB::table('users')->where('id', '=', $uid)->first();
 
-        return view('users.edit', ['users' => $users]);
+        return view('backend.users.edit', ['users' => $users]);
     }
     /**
      * Update the specified resource in storage.

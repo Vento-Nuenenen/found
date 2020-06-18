@@ -9,6 +9,6 @@ use function PHPUnit\Framework\isEmpty;
 class ItemsController extends Controller
 {
     public function index(){
-        return view('items.items');
+        return view('backend.items.items');
     }
 }
