@@ -20,4 +20,12 @@ class Item extends Model{
         'fk_groups',
         'fk_customers',
     ];
+
+    public function group(){
+        return $this->hasOne('App\Models\Group');
+    }
+
+    public function event(){
+        return $this->hasOne('App\Models\Event');
+    }
 }
