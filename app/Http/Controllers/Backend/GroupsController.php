@@ -22,7 +22,7 @@ class GroupsController extends Controller
     public function index(Request $request)
     {
         if ($request->input('search') == null) {
-            $groups = DB::table('groups')->select('groups.*')->get();
+            $groups = Group::all();
         } else {
             $search_string = $request->input('search');
             $groups = DB::table('groups')
@@ -46,8 +46,6 @@ class GroupsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     *
-     * @param $group_active
      *
      * @return RedirectResponse
      */

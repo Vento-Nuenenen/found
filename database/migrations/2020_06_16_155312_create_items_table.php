@@ -26,7 +26,6 @@ class CreateItemsTable extends Migration
             $table->foreignId('fk_events')->nullable();
             $table->foreignId('fk_groups')->nullable();
             $table->foreignId('fk_customers')->nullable();
-            $table->softDeletes()->nullable();
             $table->timestamps();
         });
     }
