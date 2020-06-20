@@ -21,14 +21,14 @@
                 </div>
                 {!! Form::close() !!}
                 <div class="input-group" id="adv-search">
-                    <button onclick="location.href='{{ route('add-items') }}'" type="button" class="btn btn-primary form-control mt-2">Neue Gruppe</button>
+                    <button onclick="location.href='{{ route('add-items') }}'" type="button" class="btn btn-primary form-control mt-2">Neues Item</button>
                 </div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-                <h5 class="float-left">Item Gruppen</h5>
+                <h5 class="float-left">Items</h5>
 
                 <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
             </div>
