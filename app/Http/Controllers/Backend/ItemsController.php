@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
+use App\Models\Group;
 use App\Models\Item;
+use DB;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -38,7 +41,10 @@ class ItemsController extends Controller
      * @return Application|Factory|View
      */
     public function create(){
-        return view('backend.items.add');
+        $item_events = Event::all();
+        $item_groups = Group::all();
+
+        return view('backend.items.add', ['item_events' => $item_events, 'item_groups' => $item_groups]);
     }
 
     /**
@@ -82,9 +88,11 @@ class ItemsController extends Controller
      * @return Application|Factory|View
      */
     public function edit($iid){
-        $groups = Item::where('id', '=', $iid)->first();
+        $item = Item::where('id', '=', $iid)->first();
+        $item_events = Event::all();
+        $item_groups = Group::all();
 
-        return view('backend.items.edit', ['groups' => $groups]);
+        return view('backend.items.edit', ['item' => $item, 'item_events' => $item_events, 'item_groups' => $item_groups]);
     }
 
     /**

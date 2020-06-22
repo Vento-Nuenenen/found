@@ -12,7 +12,7 @@
             <div class="card-header">
                 <h5 class="float-left">Item erstellen</h5>
 
-                <a href="{{ route('groups') }}" class="float-right">Zurück zu Items</a>
+                <a href="{{ route('items') }}" class="float-right">Zurück zu Items</a>
             </div>
             <div class="card-body">
                 {!! Form::open(array('route' => 'store-items', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
@@ -24,8 +24,8 @@
                         <div class="input-group">
                             {!! Form::text('item_identifier', NULL, array('id' => 'item_identifier', 'class' => 'form-control', 'placeholder' => 'Item ID', 'required')) !!}
                             <div class="input-group-append">
-                                <label class="input-group-text" for="group_name">
-                                    <i class="fa fa-group" aria-hidden="true"></i>
+                                <label class="input-group-text" for="item_identifier">
+                                    <i class="fa fa-id-badge" aria-hidden="true"></i>
                                 </label>
                             </div>
                         </div>
@@ -43,8 +43,8 @@
                         <div class="input-group">
                             {!! Form::text('item_name', NULL, array('id' => 'item_name', 'class' => 'form-control', 'placeholder' => 'Bezeichnung', 'required')) !!}
                             <div class="input-group-append">
-                                <label class="input-group-text" for="group_name">
-                                    <i class="fa fa-group" aria-hidden="true"></i>
+                                <label class="input-group-text" for="item_name">
+                                    <i class="fa fa-id-badge" aria-hidden="true"></i>
                                 </label>
                             </div>
                         </div>
@@ -62,8 +62,8 @@
                         <div class="input-group">
                             {!! Form::text('item_color', NULL, array('id' => 'item_color', 'class' => 'form-control', 'placeholder' => 'Farbe')) !!}
                             <div class="input-group-append">
-                                <label class="input-group-text" for="group_name">
-                                    <i class="fa fa-group" aria-hidden="true"></i>
+                                <label class="input-group-text" for="item_color">
+                                    <i class="fa fa-gears" aria-hidden="true"></i>
                                 </label>
                             </div>
                         </div>
@@ -81,8 +81,8 @@
                         <div class="input-group">
                             {!! Form::text('item_size', NULL, array('id' => 'item_size', 'class' => 'form-control', 'placeholder' => 'Grösse')) !!}
                             <div class="input-group-append">
-                                <label class="input-group-text" for="group_name">
-                                    <i class="fa fa-group" aria-hidden="true"></i>
+                                <label class="input-group-text" for="item_size">
+                                    <i class="fa fa-gears" aria-hidden="true"></i>
                                 </label>
                             </div>
                         </div>
@@ -114,8 +114,8 @@
                         <div class="input-group">
                             {!! Form::text('item_price', NULL, array('id' => 'item_price', 'class' => 'form-control', 'placeholder' => 'Preis', 'required')) !!}
                             <div class="input-group-append">
-                                <label class="input-group-text" for="group_name">
-                                    <i class="fa fa-group" aria-hidden="true"></i>
+                                <label class="input-group-text" for="item_price">
+                                    <i class="fa fa-money" aria-hidden="true"></i>
                                 </label>
                             </div>
                         </div>
@@ -142,15 +142,17 @@
                 </div>
 
                 <div class="form-group has-feedback row {{ $errors->has('item_event') ? ' has-error ' : '' }}">
-                    {!! Form::label('item_event', 'Itemevent', array('class' => 'col-md-3 control-label')); !!}
+                    {!! Form::label('item_event', 'Itemevent', array('class' => 'col-md-3 control-label', 'required')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::text('item_event', NULL, array('id' => 'item_event', 'class' => 'form-control', 'placeholder' => 'Itemevent', 'required')) !!}
-                            <div class="input-group-append">
-                                <label class="input-group-text" for="group_name">
-                                    <i class="fa fa-group" aria-hidden="true"></i>
-                                </label>
-                            </div>
+                            <select class="form-control selectpicker" data-style="btn-primary" name="item_event" id="item_event">
+                                <option value="">Event wählen</option>
+                                @if ($item_events)
+                                    @foreach($item_events as $event)
+                                        <option value="{{ $event->id }}">{{ $event->event_name }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                         </div>
                         @if ($errors->has('item_event'))
                             <span class="help-block">
@@ -161,15 +163,17 @@
                 </div>
 
                 <div class="form-group has-feedback row {{ $errors->has('item_group') ? ' has-error ' : '' }}">
-                    {!! Form::label('item_group', 'Itemgruppe', array('class' => 'col-md-3 control-label')); !!}
+                    {!! Form::label('item_group', 'Gruppe', array('class' => 'col-md-3 control-label', 'required')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::text('item_group', NULL, array('id' => 'item_group', 'class' => 'form-control', 'placeholder' => 'Itemgruppe', 'required')) !!}
-                            <div class="input-group-append">
-                                <label class="input-group-text" for="group_name">
-                                    <i class="fa fa-group" aria-hidden="true"></i>
-                                </label>
-                            </div>
+                            <select class="form-control selectpicker" data-style="btn-primary" name="item_group" id="item_group">
+                                <option value="">Gruppe wählen</option>
+                                @if ($item_groups)
+                                    @foreach($item_groups as $group)
+                                        <option value="{{ $group->id }}">{{ $group->group_name }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
                         </div>
                         @if ($errors->has('item_group'))
                             <span class="help-block">
