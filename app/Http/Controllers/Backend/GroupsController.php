@@ -86,7 +86,10 @@ class GroupsController extends Controller
         $group_name = $request->input('group_name');
         $group_active = $request->input('group_active') == 'on';
 
-        DB::table('groups')->where('id', '=', $gid)->update(['group_name' => $group_name, 'group_active' => $group_active]);
+        DB::table('groups')->where('id', '=', $gid)->update([
+            'group_name' => $group_name,
+            'group_active' => $group_active
+        ]);
 
         return redirect()->back()->with('message', 'Gruppe wurde aktualisiert.');
     }

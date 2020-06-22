@@ -85,7 +85,10 @@ class EventsController extends Controller
         $event_name = $request->input('event_name');
         $event_date = $request->input('event_date');
 
-        DB::table('events')->where('id', '=', $eid)->update(['event_name' => $event_name, 'event_date' => $event_date]);
+        DB::table('events')->where('id', '=', $eid)->update([
+            'event_name' => $event_name,
+            'event_date' => $event_date
+        ]);
 
         return redirect()->back()->with('message', 'Event wurde aktualisiert.');
     }
