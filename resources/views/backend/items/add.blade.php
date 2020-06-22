@@ -94,15 +94,15 @@
                     </div>
                 </div>
 
-                <div class="form-group has-feedback row {{ $errors->has('group_active') ? ' has-error ' : '' }}">
-                    {!! Form::label('returned', 'Zurückgegeben?', array('class' => 'col-md-3 control-label')); !!}
+                <div class="form-group has-feedback row {{ $errors->has('item_returned') ? ' has-error ' : '' }}">
+                    {!! Form::label('item_returned', 'Zurückgegeben?', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            <input id="returned" name="returned" type="checkbox" data-toggle="toggle" data-on="Ja" data-off="Nein" data-onstyle="success" data-offstyle="danger">
+                            <input id="item_returned" name="item_returned" type="checkbox" data-toggle="toggle" data-on="Ja" data-off="Nein" data-onstyle="success" data-offstyle="danger">
                         </div>
-                        @if ($errors->has('returned'))
+                        @if ($errors->has('item_returned'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('returned') }}</strong>
+                                <strong>{{ $errors->first('item_returned') }}</strong>
                             </span>
                         @endif
                     </div>
@@ -127,86 +127,53 @@
                     </div>
                 </div>
 
-                <div class="form-group has-feedback row {{ $errors->has('group_active') ? ' has-error ' : '' }}">
-                    {!! Form::label('returned', 'Zurückgegeben?', array('class' => 'col-md-3 control-label')); !!}
+                <div class="form-group has-feedback row {{ $errors->has('item_sold') ? ' has-error ' : '' }}">
+                    {!! Form::label('item_sold', 'Verkauft?', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            <input id="returned" name="returned" type="checkbox" data-toggle="toggle" data-on="Ja" data-off="Nein" data-onstyle="success" data-offstyle="danger">
+                            <input id="item_sold" name="item_sold" type="checkbox" data-toggle="toggle" data-on="Ja" data-off="Nein" data-onstyle="success" data-offstyle="danger">
                         </div>
-                        @if ($errors->has('returned'))
+                        @if ($errors->has('item_sold'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('returned') }}</strong>
+                                <strong>{{ $errors->first('item_sold') }}</strong>
                             </span>
                         @endif
                     </div>
                 </div>
 
-                <div class="form-group has-feedback row {{ $errors->has('group_active') ? ' has-error ' : '' }}">
-                    {!! Form::label('returned', 'Zurückgegeben?', array('class' => 'col-md-3 control-label')); !!}
+                <div class="form-group has-feedback row {{ $errors->has('item_event') ? ' has-error ' : '' }}">
+                    {!! Form::label('item_event', 'Itemevent', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            <input id="returned" name="returned" type="checkbox" data-toggle="toggle" data-on="Ja" data-off="Nein" data-onstyle="success" data-offstyle="danger">
-                        </div>
-                        @if ($errors->has('returned'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('returned') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="form-group has-feedback row {{ $errors->has('fk_events') ? ' has-error ' : '' }}">
-                    {!! Form::label('fk_events', 'Item ID', array('class' => 'col-md-3 control-label')); !!}
-                    <div class="col-md-9">
-                        <div class="input-group">
-                            {!! Form::text('item_identifier', NULL, array('id' => 'item_identifier', 'class' => 'form-control', 'placeholder' => 'Item ID', 'required')) !!}
+                            {!! Form::text('item_event', NULL, array('id' => 'item_event', 'class' => 'form-control', 'placeholder' => 'Itemevent', 'required')) !!}
                             <div class="input-group-append">
                                 <label class="input-group-text" for="group_name">
                                     <i class="fa fa-group" aria-hidden="true"></i>
                                 </label>
                             </div>
                         </div>
-                        @if ($errors->has('fk_events'))
+                        @if ($errors->has('item_event'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('fk_events') }}</strong>
+                                <strong>{{ $errors->first('item_event') }}</strong>
                             </span>
                         @endif
                     </div>
                 </div>
 
-                <div class="form-group has-feedback row {{ $errors->has('fk_groups') ? ' has-error ' : '' }}">
-                    {!! Form::label('fk_groups', 'Item ID', array('class' => 'col-md-3 control-label')); !!}
+                <div class="form-group has-feedback row {{ $errors->has('item_group') ? ' has-error ' : '' }}">
+                    {!! Form::label('item_group', 'Itemgruppe', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::text('fk_groups', NULL, array('id' => 'item_identifier', 'class' => 'form-control', 'placeholder' => 'Item ID', 'required')) !!}
+                            {!! Form::text('item_group', NULL, array('id' => 'item_group', 'class' => 'form-control', 'placeholder' => 'Itemgruppe', 'required')) !!}
                             <div class="input-group-append">
                                 <label class="input-group-text" for="group_name">
                                     <i class="fa fa-group" aria-hidden="true"></i>
                                 </label>
                             </div>
                         </div>
-                        @if ($errors->has('fk_groups'))
+                        @if ($errors->has('item_group'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('fk_groups') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="form-group has-feedback row {{ $errors->has('fk_customers') ? ' has-error ' : '' }}">
-                    {!! Form::label('fk_customers', 'Item ID', array('class' => 'col-md-3 control-label')); !!}
-                    <div class="col-md-9">
-                        <div class="input-group">
-                            {!! Form::text('fk_customers', NULL, array('id' => 'item_identifier', 'class' => 'form-control', 'placeholder' => 'Item ID', 'required')) !!}
-                            <div class="input-group-append">
-                                <label class="input-group-text" for="group_name">
-                                    <i class="fa fa-group" aria-hidden="true"></i>
-                                </label>
-                            </div>
-                        </div>
-                        @if ($errors->has('fk_customers'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('fk_customers') }}</strong>
+                                <strong>{{ $errors->first('item_group') }}</strong>
                             </span>
                         @endif
                     </div>
@@ -216,7 +183,7 @@
                     {!! Form::label('item_img', 'Itembild', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            <input type="file" accept="image/*" id="item_img" name="group_logo" />
+                            <input type="file" accept="image/*" id="item_img" name="item_img" />
                         </div>
                         @if ($errors->has('item_img'))
                             <span class="help-block">
@@ -226,7 +193,7 @@
                     </div>
                 </div>
 
-                {!! Form::button('Gruppe erstellen', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
+                {!! Form::button('Item erstellen', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
                 {!! Form::close() !!}
             </div>
         </div>
