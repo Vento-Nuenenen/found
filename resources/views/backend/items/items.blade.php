@@ -54,9 +54,6 @@
                         Preis
                     </th>
                     <th>
-                        Zu Verkaufen
-                    </th>
-                    <th>
                         Verkauft
                     </th>
                     <th>
@@ -102,13 +99,6 @@
                                 @endif
                             </td>
                             <td>
-                                @if($item->for_sale == true)
-                                    Ja
-                                @else
-                                    Nein
-                                @endif
-                            </td>
-                            <td>
                                 @if($item->sold == true)
                                     Ja
                                 @else
@@ -132,6 +122,8 @@
                     @endforeach
                     </tbody>
                 </table>
+
+                {{ $items->links() }}
             </div>
         </div>
     </div>

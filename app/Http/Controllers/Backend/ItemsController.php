@@ -19,12 +19,14 @@ class ItemsController extends Controller
      */
     public function index(Request $request){
         if ($request->input('search') == null) {
-            $items = Item::all();
+            $items = Item::paginate(20);
         } else {
             $search_string = $request->input('search');
             $items = DB::table('items')
                 ->select('items.*')
-                ->where('items.item_name', 'LIKE', "%$search_string%")->get();
+                ->where('items.item_name', 'LIKE', "%$search_string%")
+                ->pagi
+                ->get();
         }
 
         return view('backend.items.items', ['items' => $items]);
@@ -47,21 +49,26 @@ class ItemsController extends Controller
      * @return RedirectResponse
      */
     public function store(Request $request){
-        $group_name = $request->input('item_name');
-        $group_active = $request->input('group_active') == "on";
+        $item_identifier = $request->input('item_identifier');
+        $item_name = $request->input('item_name');
+        $item_color = $request->input('item_color');
+        $item_size = $request->input('item_size');
+        $item_returned = $request->input('item_returned');
+        $item_price = $request->input('item_price');
+        $item_sold = $request->input('item_sold');
+        $item_event = $request->input('item_event');
+        $item_group = $request->input('item_group');
 
         Item::create([
-            'item_identifier' => $group_name,
-            'item_name' => $group_active,
-            'item_color' => $group_active,
-            'item_size' => $group_active,
-            'returned' => $group_active,
-            'item_price' => $group_active,
-            'for_sale' => $group_active,
-            'sold' => $group_active,
-            'fk_events' => $group_active,
-            'fk_groups' => $group_active,
-            'fk_customers' => $group_active,
+            'item_identifier' => $item_identifier,
+            'item_name' => $item_name,
+            'item_color' => $item_color,
+            'item_size' => $item_size,
+            'item_returned' => $item_returned,
+            'item_price' => $item_price,
+            'item_sold' => $item_sold,
+            'fk_events' => $item_event,
+            'fk_groups' => $item_group,
         ]);
 
         return redirect()->back()->with('message', 'Item wurde erstellt.');
@@ -89,12 +96,26 @@ class ItemsController extends Controller
      * @return RedirectResponse
      */
     public function update(Request $request, $iid){
-        $group_name = $request->input('group_name');
-        $group_active = $request->input('group_active') == 'on';
+        $item_identifier = $request->input('item_identifier');
+        $item_name = $request->input('item_name');
+        $item_color = $request->input('item_color');
+        $item_size = $request->input('item_size');
+        $item_returned = $request->input('item_returned');
+        $item_price = $request->input('item_price');
+        $item_sold = $request->input('item_sold');
+        $item_event = $request->input('item_event');
+        $item_group = $request->input('item_group');
 
-        DB::table('groups')->where('id', '=', $iid)->update([
-            'group_name' => $group_name,
-            'group_active' => $group_active
+        DB::table('items')->where('id', '=', $iid)->update([
+            'item_identifier' => $item_identifier,
+            'item_name' => $item_name,
+            'item_color' => $item_color,
+            'item_size' => $item_size,
+            'item_returned' => $item_returned,
+            'item_price' => $item_price,
+            'item_sold' => $item_sold,
+            'fk_events' => $item_event,
+            'fk_groups' => $item_group,
         ]);
 
         return redirect()->back()->with('message', 'Item wurde aktualisiert .');
