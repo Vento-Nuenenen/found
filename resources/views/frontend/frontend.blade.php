@@ -9,69 +9,25 @@
         @endif
 
         <h3>Neueste Fundgegenstände</h3>
-        <div class="card-group">
-            <div class="card col-4">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+        <br />
+
+        @if($items != null)
+            @foreach($items as $item)
+                <div class="card-group">
+                    <div class="card col-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $item->item_name }} - {{ $item->item_identifier }}</h5>
+                            <p class="card-text">Farbe: {{ $item->item_color }}</p>
+                            <p class="card-text">Grösse: {{ $item->item_size }}</p>
+                            <p class="card-text">Event: {{ $item->event->event_name }}</p>
+                            <p class="card-text">Gruppe: {{ $item->group->group_name }}</p>
+                            <p class="card-text"><small class="text-muted">Eingestellt am {{ $item->created_at }}, aktualisiert am {{ $item->updated_at }}</small></p>
+                        </div>
+                        <img class="card-img-bottom" src="{{ $item->item_img ?? asset("/storage/placeholder-".random_int(1, 3).".png") }}" alt="Item image">
+                    </div>
                 </div>
-                <img class="card-img-bottom" src="..." alt="Card image cap">
-            </div>
-
-            <div class="card col-4">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <img class="card-img-bottom" src="..." alt="Card image cap">
-            </div>
-
-            <div class="card col-4">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <img class="card-img-bottom" src="..." alt="Card image cap">
-            </div>
-
-            <div class="card col-4">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <img class="card-img-bottom" src="..." alt="Card image cap">
-            </div>
-
-            <div class="card col-4">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <img class="card-img-bottom" src="..." alt="Card image cap">
-            </div>
-
-            <div class="card col-4">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <img class="card-img-bottom" src="..." alt="Card image cap">
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <h5>Name</h5>
-            </div>
-            <div class="card-body table-responsive">
-
-            </div>
-        </div>
+            @endforeach
+        @endif
     </div>
 @endsection

@@ -23,9 +23,9 @@ class CreateItemsTable extends Migration
             $table->double('item_price')->nullable();
 			$table->boolean('item_sold')->default(false);
             $table->string('item_img')->nullable();
-            $table->foreignId('fk_events')->nullable();
-            $table->foreignId('fk_groups')->nullable();
-            $table->foreignId('fk_customers')->nullable();
+            $table->foreignId('event_id')->nullable();
+            $table->foreignId('group_id')->nullable();
+            $table->foreignId('customer_id')->nullable();
             $table->timestamps();
         });
     }

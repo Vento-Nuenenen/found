@@ -22,10 +22,10 @@ class Item extends Model{
     ];
 
     public function group(){
-        return $this->hasOne('App\Models\Group');
+        return $this->belongsTo('App\Models\Group');
     }
 
     public function event(){
-        return $this->hasOne('App\Models\Event');
+        return $this->belongsTo('App\Models\Event');
     }
 }

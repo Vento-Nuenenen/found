@@ -20,9 +20,9 @@ class ItemsSeeder extends Seeder
                 'item_name' => 'Test 1',
                 'item_color' => 'Blau',
                 'item_size' => 'Gross',
-                'fk_events' => 1,
-                'fk_groups' => 1,
-                'fk_customers' => null
+                'event_id' => 1,
+                'group_id' => 1,
+                'customer_id' => null
             ]);
             $event->save();
         }
