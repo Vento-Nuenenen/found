@@ -54,9 +54,6 @@
                         Preis
                     </th>
                     <th>
-                        Zu Verkaufen
-                    </th>
-                    <th>
                         Verkauft
                     </th>
                     <th>
@@ -99,13 +96,6 @@
                                     K.A.
                                 @else
                                     {{ $item->item_price }}
-                                @endif
-                            </td>
-                            <td>
-                                @if($item->for_sale == true)
-                                    Ja
-                                @else
-                                    Nein
                                 @endif
                             </td>
                             <td>
