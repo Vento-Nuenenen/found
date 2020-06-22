@@ -19,12 +19,13 @@ class ItemsController extends Controller
      */
     public function index(Request $request){
         if ($request->input('search') == null) {
-            $items = Item::all();
+            $items = Item::paginate(20);
         } else {
             $search_string = $request->input('search');
             $items = DB::table('items')
                 ->select('items.*')
                 ->where('items.item_name', 'LIKE', "%$search_string%")
+                ->pagi
                 ->get();
         }
 
