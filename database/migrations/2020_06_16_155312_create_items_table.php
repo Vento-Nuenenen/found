@@ -19,10 +19,9 @@ class CreateItemsTable extends Migration
             $table->string('item_name');
             $table->string('item_color')->nullable();
             $table->string('item_size')->nullable();
-            $table->boolean('returned')->default(false);
+            $table->boolean('item_returned')->default(false);
             $table->double('item_price')->nullable();
-            $table->boolean('for_sale')->default(false);
-            $table->boolean('sold')->default(false);
+            $table->boolean('item_sold')->default(false);
             $table->foreignId('fk_events')->nullable();
             $table->foreignId('fk_groups')->nullable();
             $table->foreignId('fk_customers')->nullable();

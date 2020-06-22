@@ -24,7 +24,8 @@ class ItemsController extends Controller
             $search_string = $request->input('search');
             $items = DB::table('items')
                 ->select('items.*')
-                ->where('items.item_name', 'LIKE', "%$search_string%")->get();
+                ->where('items.item_name', 'LIKE', "%$search_string%")
+                ->get();
         }
 
         return view('backend.items.items', ['items' => $items]);
@@ -47,12 +48,12 @@ class ItemsController extends Controller
      * @return RedirectResponse
      */
     public function store(Request $request){
-        $group_name = $request->input('item_name');
-        $group_active = $request->input('group_active') == "on";
+        $item_identifier = $request->input('item_identifier');
+        $item_name = $request->input('item_name');
 
         Item::create([
-            'item_identifier' => $group_name,
-            'item_name' => $group_active,
+            'item_identifier' => $item_identifier,
+            'item_name' => $item_name,
             'item_color' => $group_active,
             'item_size' => $group_active,
             'returned' => $group_active,
