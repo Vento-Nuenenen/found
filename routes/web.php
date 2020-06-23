@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Frontend\FrontendController@index')->name('frontend');
+Route::get('/{iid}', 'Frontend\FrontendController@show')->name('show-frontend');
 
 Auth::routes(['register' => false]);
 

@@ -112,7 +112,7 @@
                     {!! Form::label('item_price', 'Preis', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::text('item_price', NULL, array('id' => 'item_price', 'class' => 'form-control', 'placeholder' => 'Preis', 'required')) !!}
+                            {!! Form::text('item_price', NULL, array('id' => 'item_price', 'class' => 'form-control', 'placeholder' => 'Preis')) !!}
                             <div class="input-group-append">
                                 <label class="input-group-text" for="item_price">
                                     <i class="fa fa-money" aria-hidden="true"></i>

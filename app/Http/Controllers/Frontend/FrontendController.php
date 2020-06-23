@@ -11,4 +11,10 @@ class FrontendController extends Controller{
 
         return view('frontend.frontend', ['items' => $items]);
     }
+
+    public function show($iid){
+        $item = Item::with(['group', 'event'])->find($iid);
+
+        return view('frontend.item', ['item'=> $item]);
+    }
 }

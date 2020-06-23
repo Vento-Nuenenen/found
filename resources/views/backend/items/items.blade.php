@@ -57,6 +57,9 @@
                         Verkauft
                     </th>
                     <th>
+                        Bild
+                    </th>
+                    <th>
                         Event
                     </th>
                     <th>
@@ -104,6 +107,9 @@
                                 @else
                                     Nein
                                 @endif
+                            </td>
+                            <td>
+                                <img width="80px" src="{{ $item->item_img ? asset('storage/img/' . $item->img_name) : asset("/storage/placeholder-".random_int(1, 3).".png") }}" alt="Item image">
                             </td>
                             <td>
                                 {{ $item->fk_events }}

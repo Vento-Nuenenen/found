@@ -28,6 +28,7 @@ class ItemsController extends Controller
             $items = DB::table('items')
                 ->select('items.*')
                 ->where('items.item_name', 'LIKE', "%$search_string%")
+                ->paginate(20)
                 ->get();
         }
 
@@ -64,6 +65,13 @@ class ItemsController extends Controller
         $item_event = $request->input('item_event');
         $item_group = $request->input('item_group');
 
+        if($request->file('item_img')){
+            $img_name = time() .'.' . $request->file('item_img')->extension();
+            $request->file('item_img')->move(storage_path('app/public/img'), $img_name);
+        }else{
+            $img_name = null;
+        }
+
         Item::create([
             'item_identifier' => $item_identifier,
             'item_name' => $item_name,
@@ -72,8 +80,9 @@ class ItemsController extends Controller
             'item_returned' => $item_returned,
             'item_price' => $item_price,
             'item_sold' => $item_sold,
-            'fk_events' => $item_event,
-            'fk_groups' => $item_group,
+            'item_img' => $img_name,
+            'event_id' => $item_event,
+            'group_id' => $item_group,
         ]);
 
         return redirect()->back()->with('message', 'Item wurde erstellt.');
@@ -113,6 +122,13 @@ class ItemsController extends Controller
         $item_event = $request->input('item_event');
         $item_group = $request->input('item_group');
 
+        if($request->file('item_img')){
+            $img_name = time() .'.' . $request->file('item_img')->extension();
+            $request->file('item_img')->move(storage_path('app/public/img'), $img_name);
+        }else{
+            $img_name = null;
+        }
+
         DB::table('items')->where('id', '=', $iid)->update([
             'item_identifier' => $item_identifier,
             'item_name' => $item_name,
@@ -121,8 +137,9 @@ class ItemsController extends Controller
             'item_returned' => $item_returned,
             'item_price' => $item_price,
             'item_sold' => $item_sold,
-            'fk_events' => $item_event,
-            'fk_groups' => $item_group,
+            'item_img' => $img_name,
+            'event_id' => $item_event,
+            'group_id' => $item_group,
         ]);
 
         return redirect()->back()->with('message', 'Item wurde aktualisiert .');

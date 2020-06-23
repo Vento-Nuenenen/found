@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Item;
+use Faker\Generator as Faker;
 
 class ItemsSeeder extends Seeder
 {
@@ -10,21 +11,22 @@ class ItemsSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $item = Item::where('item_name', '=', 'Test 1')->first();
+        for($i = 0; $i < 4; $i++){
+            $item = Item::where('item_name', '=', 'Test ' . $i)->first();
 
-        if($item == null){
-            $event = Item::create([
-                'item_identifier' => '1',
-                'item_name' => 'Test 1',
-                'item_color' => 'Blau',
-                'item_size' => 'Gross',
-                'event_id' => 1,
-                'group_id' => 1,
-                'customer_id' => null
-            ]);
-            $event->save();
+            if($item == null){
+                $event = Item::create([
+                    'item_identifier' => $i,
+                    'item_name' => 'Test ' . $i,
+                    'item_color' => $faker->colorName,
+                    'item_size' => 'Gross',
+                    'event_id' => 1,
+                    'group_id' => 1,
+                ]);
+                $event->save();
+            }
         }
     }
 }

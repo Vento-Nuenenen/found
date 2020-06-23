@@ -90,6 +90,10 @@
                             <a class="dropdown-item {{ Request::is('admin/items/')}}" href="{{ url('/admin/items') }}">
                                 Items
                             </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('admin/items/')}}" href="{{ url('/admin/items') }}">
+                                Anfragen
+                            </a>
                         </div>
                     </li>
                 </ul>
