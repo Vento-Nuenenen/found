@@ -45,7 +45,43 @@
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".User">
                 <div class="card-body">
-                    <input />
+                    <div class="form-group has-feedback row {{ $errors->has('customer_name') ? ' has-error ' : '' }}">
+                        {!! Form::label('customer_name', 'Vor & Nachname', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                {!! Form::text('customer_name', NULL, array('id' => 'item_identifier', 'class' => 'form-control', 'placeholder' => 'Vor & Nachname', 'required')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="item_identifier">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('customer_name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('customer_name') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback row {{ $errors->has('customer_mail') ? ' has-error ' : '' }}">
+                        {!! Form::label('customer_mail', 'E-Mail', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                {!! Form::email('customer_mail', NULL, array('id' => 'customer_mail', 'class' => 'form-control', 'placeholder' => 'E-Mail', 'required')) !!}
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="customer_mail">
+                                        <i class="fa fa-at" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            @if ($errors->has('customer_mail'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('customer_mail') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

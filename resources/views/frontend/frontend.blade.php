@@ -12,13 +12,13 @@
 
         <br />
 
-        <div class="row ">
+        <div class="row">
             @if($items != null)
                 @foreach($items as $item)
                     <div class="col-md-4 col-sm-12 p-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $item->item_name }} - {{ $item->item_identifier }}</h5>
+                                <h5 class="card-title">{{ $item->item_name }} - Referenz: {{ $item->item_identifier }}</h5>
                                 <p class="card-text">Farbe: {{ $item->item_color ?? 'Keine Angabe' }}</p>
                                 <p class="card-text">Grösse: {{ $item->item_size ?? 'Keine Angabe' }}</p>
                                 <p class="card-text">Event: {{ $item->event->event_name ?? 'Keine Angabe' }}</p>
