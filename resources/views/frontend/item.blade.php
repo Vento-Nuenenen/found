@@ -43,6 +43,9 @@
             <h5>Das ist meines!</h5>
         </div>
         <div class="card-body">
+            {!! Form::open(array('route' => ['claim-frontend', $item->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+            {!! csrf_field() !!}
+
             <div class="form-group has-feedback row {{ $errors->has('customer_name') ? ' has-error ' : '' }}">
                 {!! Form::label('customer_name', 'Vor & Nachname', array('class' => 'col-md-3 control-label')); !!}
                 <div class="col-md-9">
@@ -80,6 +83,11 @@
                     @endif
                 </div>
             </div>
+
+            @captcha
+
+            {!! Form::button('Anfrage senden', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right col-12','type' => 'submit' )) !!}
+            {!! Form::close() !!}
         </div>
     </div>
 @endsection

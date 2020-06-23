@@ -45,7 +45,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::get('/items/edit/{iid}', 'Backend\ItemsController@edit')->name('edit-items');
     Route::post('/items/update/{iid}', 'Backend\ItemsController@update')->name('update-items');
     Route::get('/items/destroy/{iid}', 'Backend\ItemsController@destroy')->name('destroy-items');
+
+    Route::any('/claims', 'Backend\ClaimedController@index')->name('claims');
+    Route::get('/claims/destroy/{cid}', 'Backend\ClaimedController@destroy')->name('destroy-claims');
 });
 
 Route::get('/', 'Frontend\FrontendController@index')->name('frontend');
 Route::get('/{iid}', 'Frontend\FrontendController@show')->name('show-frontend');
+Route::post('/{iid}/claim', 'Frontend\FrontendController@claim')->name('claim-frontend');
