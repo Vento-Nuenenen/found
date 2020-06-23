@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Frontend\FrontendController@index')->name('frontend');
-Route::get('/{iid}', 'Frontend\FrontendController@show')->name('show-frontend');
-
 Auth::routes(['register' => false]);
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
@@ -49,3 +46,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::post('/items/update/{iid}', 'Backend\ItemsController@update')->name('update-items');
     Route::get('/items/destroy/{iid}', 'Backend\ItemsController@destroy')->name('destroy-items');
 });
+
+Route::get('/', 'Frontend\FrontendController@index')->name('frontend');
+Route::get('/{iid}', 'Frontend\FrontendController@show')->name('show-frontend');
