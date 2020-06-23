@@ -28,7 +28,6 @@ class ItemsController extends Controller
             $items = DB::table('items')
                 ->select('items.*')
                 ->where('items.item_name', 'LIKE', "%$search_string%")
-                ->pagi
                 ->get();
         }
 
