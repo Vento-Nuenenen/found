@@ -8,8 +8,32 @@ use App\Models\Claim;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller{
-    public function index(){
-        $items = Item::with(['group', 'event'])->where([['item_sold', false], ['item_returned', false]])->paginate(20);
+    public function index($group_filter = null, $event_filter = null){
+        if($group_filter != null && $event_filter != null){
+            $items = Item::with(['group', 'event'])->where([
+                ['item_sold', false],
+                ['item_returned', false],
+                ['group_name', 'LIKE', $group_filter],
+                ['event_name', 'LIKE', $event_filter],
+            ])->paginate(20);
+        }else if($group_filter != null){
+            $items = Item::with(['group', 'event'])->where([
+                ['item_sold', false],
+                ['item_returned', false],
+                ['group_name', 'LIKE', $group_filter],
+            ])->paginate(20);
+        }else if($event_filter != null){
+            $items = Item::with(['group', 'event'])->where([
+                ['item_sold', false],
+                ['item_returned', false],
+                ['event_name', 'LIKE', $event_filter],
+            ])->paginate(20);
+        }else{
+            $items = Item::with(['group', 'event'])->where([
+                ['item_sold', false],
+                ['item_returned', false]
+            ])->paginate(20);
+        }
 
         return view('frontend.frontend', ['items' => $items]);
     }
