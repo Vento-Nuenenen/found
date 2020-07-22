@@ -129,18 +129,23 @@ class ItemsController extends Controller
             $img_name = null;
         }
 
-        DB::table('items')->where('id', '=', $iid)->update([
-            'item_identifier' => $item_identifier,
-            'item_name' => $item_name,
-            'item_color' => $item_color,
-            'item_size' => $item_size,
-            'item_returned' => $item_returned,
-            'item_price' => $item_price,
-            'item_sold' => $item_sold,
-            'item_img' => $img_name,
-            'event_id' => $item_event,
-            'group_id' => $item_group,
-        ]);
+        $item = Item::find($iid);
+        $item->item_identifier = $item_identifier;
+        $item->item_name = $item_name;
+        $item->item_color = $item_color;
+        $item->item_size = $item_size;
+        $item->item_returned = $item_returned;
+        $item->item_price = $item_price;
+        $item->item_sold = $item_sold;
+
+        if($img_name != null){
+            $item->item_img = $img_name;
+        }
+
+        $item->event_id = $item_event;
+        $item->group_id = $item_group;
+
+        $item->save();
 
         return redirect()->back()->with('message', 'Item wurde aktualisiert .');
     }
