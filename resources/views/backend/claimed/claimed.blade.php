@@ -10,7 +10,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h5 class="float-left">Item Events</h5>
+                <h5 class="float-left">Anfragen</h5>
 
                 <a href="{{  route('overwatch') }}" class="float-right">Zurück zu Overwatch</a>
             </div>
@@ -18,37 +18,20 @@
                 <table class="table table-hover">
                     <thead>
                     <th>
-                        Eventname
-                    </th>
-                    <th>
-                        Eventdatum
-                    </th>
-                    <th>
-                        Sichtbar?
+                        Name
                     </th>
                     <th>
                         Optionen
                     </th>
                     </thead>
                     <tbody>
-                    @foreach($events as $event)
+                    @foreach($claims as $claim)
                         <tr>
                             <td>
-                                {{ $event->event_name }}
+                                {{ $claim->customer_name }}
                             </td>
                             <td>
-                                {{ $event->event_date }}
-                            </td>
-                            <td>
-                                @if($event->event_active == true)
-                                    Ja
-                                @else
-                                    Nein
-                                @endif
-                            </td>
-                            <td>
-                                <button onclick="location.href='{{ route('edit-events', $event->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>
-                                <button onclick="location.href='{{ route('destroy-events', $event->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-remove"></span></button>
+                                <button onclick="location.href='{{ route('destroy-claims', $claim->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-remove"></span></button>
                             </td>
                         </tr>
                     @endforeach

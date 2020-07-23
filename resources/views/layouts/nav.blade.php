@@ -53,7 +53,7 @@
                                 Items
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('admin/items/')}}" href="{{ url('/admin/items') }}">
+                            <a class="dropdown-item {{ Request::is('admin/claims/')}}" href="{{ url('/admin/claims') }}">
                                 Anfragen
                             </a>
                         </div>
