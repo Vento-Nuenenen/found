@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::get('/items/destroy/{iid}', 'Backend\ItemsController@destroy')->name('destroy-items');
 
     Route::any('/claims', 'Backend\ClaimedController@index')->name('claims');
+    Route::any('/claims/show/{cid}', 'Backend\ClaimedController@show')->name('show-claims');
     Route::get('/claims/destroy/{cid}', 'Backend\ClaimedController@destroy')->name('destroy-claims');
 });
 
