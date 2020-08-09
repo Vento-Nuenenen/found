@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Item;
-use App\Models\Claim;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller{
@@ -52,7 +52,7 @@ class FrontendController extends Controller{
         $customer_name = $request->input('customer_name');
         $customer_mail = $request->input('customer_mail');
 
-        $claim = Claim::create([
+        $claim = Customer::create([
             'customer_name' => $customer_name,
             'customer_mail' => $customer_mail,
         ]);
