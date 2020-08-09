@@ -66,9 +66,6 @@
                         Gruppe
                     </th>
                     <th>
-                        Kontakt
-                    </th>
-                    <th>
                         Optionen
                     </th>
                     </thead>
@@ -88,7 +85,7 @@
                                 {{ $item->item_size }}
                             </td>
                             <td>
-                                @if($item->returned == true)
+                                @if($item->item_returned == true)
                                     Ja
                                 @else
                                     Nein
@@ -102,7 +99,7 @@
                                 @endif
                             </td>
                             <td>
-                                @if($item->sold == true)
+                                @if($item->item_sold == true)
                                     Ja
                                 @else
                                     Nein
@@ -112,13 +109,10 @@
                                 <img width="80px" src="{{ $item->item_img ? asset('storage/img/' . $item->img_name) : asset("/storage/placeholder-".random_int(1, 3).".png") }}" alt="Item image">
                             </td>
                             <td>
-                                {{ $item->fk_events }}
+                                {{ $item->event->event_name }}
                             </td>
                             <td>
-                                {{ $item->fk_groups }}
-                            </td>
-                            <td>
-                                {{ $item->fk_customers }}
+                                {{ $item->group->group_name }}
                             </td>
                             <td>
                                 <button onclick="location.href='{{ route('edit-items',$item->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>

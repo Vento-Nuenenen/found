@@ -47,6 +47,16 @@
                 <div class="clearfix"></div>
                 <br />
                 <div>
+                    <form method="post" action="{{ route('update-claims', $claim->id) }}">
+                        @csrf
+                        <input type="hidden" name="action" value="returned">
+                        <input onclick="return confirm('Are you sure?')" type="submit" name="grouping" id="grouping" class="btn btn-success col-md-5 float-left" value="Zurückgegeben?" />
+                    </form>
+                    <form method="post" action="{{ route('update-claims', $claim->id) }}">
+                        @csrf
+                        <input type="hidden" name="action" value="sold">
+                        <input onclick="return confirm('Are you sure?')" type="submit" name="grouping" id="grouping" class="btn btn-success col-md-5 offset-1 float-left" value="Verkauft?" />
+                    </form>
                 </div>
             </div>
         </div>
