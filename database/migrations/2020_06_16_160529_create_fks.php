@@ -14,9 +14,9 @@ class CreateFks extends Migration
     public function up()
     {
         Schema::table('items', function(Blueprint $table){
-            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
-            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
-            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('set null');
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('set null');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('set null');
         });
     }
 }
