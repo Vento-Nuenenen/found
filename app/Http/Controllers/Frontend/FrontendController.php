@@ -13,6 +13,7 @@ class FrontendController extends Controller{
             $items = Item::with(['group', 'event'])->where([
                 ['item_sold', false],
                 ['item_returned', false],
+                ['customer_id', null],
                 ['group_name', 'LIKE', $group_filter],
                 ['event_name', 'LIKE', $event_filter],
             ])->paginate(20);
@@ -20,18 +21,21 @@ class FrontendController extends Controller{
             $items = Item::with(['group', 'event'])->where([
                 ['item_sold', false],
                 ['item_returned', false],
+                ['customer_id', null],
                 ['group_name', 'LIKE', $group_filter],
             ])->paginate(20);
         }else if($event_filter != null){
             $items = Item::with(['group', 'event'])->where([
                 ['item_sold', false],
                 ['item_returned', false],
+                ['customer_id', null],
                 ['event_name', 'LIKE', $event_filter],
             ])->paginate(20);
         }else{
             $items = Item::with(['group', 'event'])->where([
                 ['item_sold', false],
-                ['item_returned', false]
+                ['item_returned', false],
+                ['customer_id', null],
             ])->paginate(20);
         }
 
@@ -55,7 +59,6 @@ class FrontendController extends Controller{
 
         $item = Item::find($iid);
 
-        $item->item_returned = true;
         $item->customer_id = $claim->id;
         $item->save();
 
