@@ -28,4 +28,8 @@ class Item extends Model{
     public function event(){
         return $this->belongsTo('App\Models\Event');
     }
+
+    public function claim(){
+        return $this->belongsTo('App\Models\Customer');
+    }
 }
