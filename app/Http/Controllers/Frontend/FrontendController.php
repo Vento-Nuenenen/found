@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendClaimMail;
+use App\Models\Group;
 use App\Models\Item;
 use App\Models\Customer;
 use Illuminate\Http\Request;
@@ -57,10 +59,13 @@ class FrontendController extends Controller{
             'customer_mail' => $customer_mail,
         ]);
 
-        $item = Item::find($iid);
+        $item = Item::with(['group', 'event'])->find($iid);
 
         $item->customer_id = $claim->id;
         $item->save();
+
+        $mail = new SendClaimMail($claim, $item);
+        $mail->handle();
 
         return redirect('/')->with('message', 'Der Gegenstand wurde als Verloren markiert. Wir melden uns bei dir.');
     }

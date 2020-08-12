@@ -169,7 +169,7 @@
                                 <td align="left" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;">
 
                                     <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:11px;line-height:1.8;text-align:left;color:#F8F7F7;">
-                                        <p>Hallo $name</p>
+                                        <p>Hallo {{ $claim->customer_name }}</p>
                                         <p>&#xA0;</p>
                                         <p>Danke das du dich bei uns gemeldet hat, um einen Fundgegenstand abzuholen.</p>
                                         <p>Wir werden uns demn&#xE4;chst bei dir melden, um die Details auszuhandeln.</p>
@@ -181,16 +181,13 @@
 
                                 </td>
                             </tr>
-
-                            </tbody></table>
-
+                            </tbody>
+                        </table>
                     </div>
 
                     <!--[if mso | IE]>
                     </td>
-
                     </tr>
-
                     </table>
                     <![endif]-->
                 </td>
@@ -239,18 +236,19 @@
 
                                     <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:11px;line-height:1.8;text-align:left;color:#FFFFFF;">
                                         <ul>
-                                            <li>ID: 1</li>
-                                            <li>Oberteil</li>
-                                            <li>Gr&#xF6;sse</li>
-                                            <li>Farbe</li>
-                                            <li>&#xA0;</li>
+                                            <li>ID: {{ $item->item_identifier }}</li>
+                                            <li>Was: {{ $item->item_name }}</li>
+                                            <li>Typ: {{ $item->group->group_name }}</li>
+                                            <li>Grösse: {{ $item->item_size }}</li>
+                                            <li>Farbe: {{ $item->item_color }}</li>
                                         </ul>
                                     </div>
 
                                 </td>
                             </tr>
 
-                            </tbody></table>
+                            </tbody>
+                        </table>
 
                     </div>
 
