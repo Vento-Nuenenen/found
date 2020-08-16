@@ -34,6 +34,8 @@
                         </div>
                     </div>
                 @endforeach
+            @else
+                <h1>Aktuell haben wir keine Fundgegenstände offen!</h1>
             @endif
         </div>
         {{ $items->links() }}

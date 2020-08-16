@@ -13,7 +13,7 @@ class FoundController extends Controller{
     public function index($group_filter = null, $event_filter = null){
         if($group_filter != null && $event_filter != null){
             $items = Item::with(['group', 'event'])->where([
-                ['item_sold', false],
+                ['item_price', null],
                 ['item_returned', false],
                 ['customer_id', null],
                 ['group_name', 'LIKE', $group_filter],
@@ -21,21 +21,21 @@ class FoundController extends Controller{
             ])->paginate(20);
         }else if($group_filter != null){
             $items = Item::with(['group', 'event'])->where([
-                ['item_sold', false],
+                ['item_price', null],
                 ['item_returned', false],
                 ['customer_id', null],
                 ['group_name', 'LIKE', $group_filter],
             ])->paginate(20);
         }else if($event_filter != null){
             $items = Item::with(['group', 'event'])->where([
-                ['item_sold', false],
+                ['item_price', null],
                 ['item_returned', false],
                 ['customer_id', null],
                 ['event_name', 'LIKE', $event_filter],
             ])->paginate(20);
         }else{
             $items = Item::with(['group', 'event'])->where([
-                ['item_sold', false],
+                ['item_price', null],
                 ['item_returned', false],
                 ['customer_id', null],
             ])->paginate(20);
@@ -45,7 +45,7 @@ class FoundController extends Controller{
     }
 
     public function show($iid){
-        $item = Item::with(['group', 'event'])->find($iid);
+        $item = Item::with(['group', 'event'])->findOrFail($iid);
 
         return view('frontend.found.item', ['item'=> $item]);
     }
@@ -59,7 +59,7 @@ class FoundController extends Controller{
             'customer_mail' => $customer_mail,
         ]);
 
-        $item = Item::with(['group', 'event'])->find($iid);
+        $item = Item::with(['group', 'event'])->findOrFail($iid);
 
         $item->customer_id = $claim->id;
         $item->save();

@@ -10,42 +10,28 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class SellController extends Controller{
-    public function index($group_filter = null, $event_filter = null){
-        if($group_filter != null && $event_filter != null){
-            $items = Item::with(['group', 'event'])->where([
-                ['item_price', 'IS NOT', null],
-                ['item_sold', false],
-                ['customer_id', null],
-                ['group_name', 'LIKE', $group_filter],
-                ['event_name', 'LIKE', $event_filter],
-            ])->paginate(20);
-        }else if($group_filter != null){
-            $items = Item::with(['group', 'event'])->where([
-                ['item_price', 'IS NOT', null],
-                ['item_sold', false],
-                ['customer_id', null],
-                ['group_name', 'LIKE', $group_filter],
-            ])->paginate(20);
-        }else if($event_filter != null){
-            $items = Item::with(['group', 'event'])->where([
-                ['item_price', 'IS NOT', null],
-                ['item_sold', false],
-                ['customer_id', null],
-                ['event_name', 'LIKE', $event_filter],
-            ])->paginate(20);
+    public function index($group_filter = null){
+        if($group_filter != null){
+            $items = Item::with(['group', 'event'])->whereNotNull('item_price')
+                ->where([
+                    ['item_price', 'IS NOT', null],
+                    ['item_sold', false],
+                    ['customer_id', null],
+                    ['group_name', 'LIKE', $group_filter],
+                ])->paginate(20);
         }else{
-            $items = Item::with(['group', 'event'])->where([
-                ['item_price', 'IS NOT', null],
-                ['item_sold', false],
-                ['customer_id', null],
-            ])->paginate(20);
+            $items = Item::with(['group', 'event'])->whereNotNull('item_price')
+                ->where([
+                    ['item_sold', false],
+                    ['customer_id', null],
+                ])->paginate(20);
         }
 
         return view('frontend.sell.sell', ['items' => $items]);
     }
 
     public function show($iid){
-        $item = Item::with(['group', 'event'])->find($iid);
+        $item = Item::with(['group', 'event'])->findOrFail($iid);
 
         return view('frontend.sell.item', ['item'=> $item]);
     }
@@ -59,7 +45,7 @@ class SellController extends Controller{
             'customer_mail' => $customer_mail,
         ]);
 
-        $item = Item::with(['group', 'event'])->find($iid);
+        $item = Item::with(['group', 'event'])->findOrFail($iid);
 
         $item->customer_id = $claim->id;
         $item->save();
