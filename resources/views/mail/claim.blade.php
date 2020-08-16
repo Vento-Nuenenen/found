@@ -157,7 +157,7 @@
                                         <p>Nachfolgend siehst du noch einmal, was du als Verloren gemeldet hast.</p>
                                         <p>&#xA0;</p>
                                         <p>Mit den besten Gr&#xFC;ssen</p>
-                                        <p>Die N&#xFC;nenen-Leitenden</p>
+                                        <p>Die Abteilung N&#xFC;nenen</p>
                                     </div>
                                 </td>
                             </tr>
