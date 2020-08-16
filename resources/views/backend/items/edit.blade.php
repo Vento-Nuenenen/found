@@ -153,7 +153,7 @@
                                 <option value="">Event wählen</option>
                                 @if ($item_events)
                                     @foreach($item_events as $event)
-                                        <option value="{{ $event->id }}" {{($item->fk_events == $event->id) ? 'selected':''}}>{{ $event->event_name }}</option>
+                                        <option value="{{ $event->id }}" {{($item->event_id == $event->id) ? 'selected':''}}>{{ $event->event_name }}</option>
                                     @endforeach
                                 @endif
                             </select>
@@ -179,7 +179,7 @@
                                 <option value="">Gruppe wählen</option>
                                 @if ($item_groups)
                                     @foreach($item_groups as $group)
-                                        <option value="{{ $group->id }}" {{($item->fk_groups == $group->id) ? 'selected':''}}>{{ $group->group_name }}</option>
+                                        <option value="{{ $group->id }}" {{($item->group_id == $group->id) ? 'selected':''}}>{{ $group->group_name }}</option>
                                     @endforeach
                                 @endif
                             </select>
