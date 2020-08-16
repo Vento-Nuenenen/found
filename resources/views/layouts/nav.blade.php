@@ -12,7 +12,13 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('/')}}" href="{{ url('/') }}">
-                        Neues
+                        Gefunden
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('sell/')}}" href="{{ url('/sell') }}">
+                        Verkauf
                     </a>
                 </li>
             </ul>

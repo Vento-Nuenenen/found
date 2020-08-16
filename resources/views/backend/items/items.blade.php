@@ -73,7 +73,7 @@
                     @foreach($items as $item)
                         <tr>
                             <td>
-                                {{ $item->item_identifier }}
+                                {{ $item->item_identifier ?? '' }}
                             </td>
                             <td>
                                 {{ $item->item_name }}
@@ -109,10 +109,10 @@
                                 <img width="80px" src="{{ $item->item_img ? asset('storage/img/' . $item->img_name) : asset("/storage/placeholder-".random_int(1, 3).".png") }}" alt="Item image">
                             </td>
                             <td>
-                                {{ $item->event->event_name }}
+                                {{ $item->event->event_name ?? '' }}
                             </td>
                             <td>
-                                {{ $item->group->group_name }}
+                                {{ $item->group->group_name ?? '' }}
                             </td>
                             <td>
                                 <button onclick="location.href='{{ route('edit-items',$item->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>

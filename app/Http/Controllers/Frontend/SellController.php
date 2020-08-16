@@ -9,45 +9,45 @@ use App\Models\Item;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class FrontendController extends Controller{
+class SellController extends Controller{
     public function index($group_filter = null, $event_filter = null){
         if($group_filter != null && $event_filter != null){
             $items = Item::with(['group', 'event'])->where([
+                ['item_price', 'IS NOT', null],
                 ['item_sold', false],
-                ['item_returned', false],
                 ['customer_id', null],
                 ['group_name', 'LIKE', $group_filter],
                 ['event_name', 'LIKE', $event_filter],
             ])->paginate(20);
         }else if($group_filter != null){
             $items = Item::with(['group', 'event'])->where([
+                ['item_price', 'IS NOT', null],
                 ['item_sold', false],
-                ['item_returned', false],
                 ['customer_id', null],
                 ['group_name', 'LIKE', $group_filter],
             ])->paginate(20);
         }else if($event_filter != null){
             $items = Item::with(['group', 'event'])->where([
+                ['item_price', 'IS NOT', null],
                 ['item_sold', false],
-                ['item_returned', false],
                 ['customer_id', null],
                 ['event_name', 'LIKE', $event_filter],
             ])->paginate(20);
         }else{
             $items = Item::with(['group', 'event'])->where([
+                ['item_price', 'IS NOT', null],
                 ['item_sold', false],
-                ['item_returned', false],
                 ['customer_id', null],
             ])->paginate(20);
         }
 
-        return view('frontend.frontend', ['items' => $items]);
+        return view('frontend.sell.sell', ['items' => $items]);
     }
 
     public function show($iid){
         $item = Item::with(['group', 'event'])->find($iid);
 
-        return view('frontend.item', ['item'=> $item]);
+        return view('frontend.sell.item', ['item'=> $item]);
     }
 
     public function claim(Request $request, $iid){

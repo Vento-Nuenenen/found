@@ -12,7 +12,7 @@
             <div class="card-header">
                 <h5 class="float-left">{{ $item->item_name }} - Referenz: {{ $item->item_identifier }}</h5>
 
-                <a href="{{  route('frontend') }}" class="float-right">Zurück zur Übersicht</a>
+                <a href="{{  route('found') }}" class="float-right">Zurück zur Übersicht</a>
             </div>
             <div class="card-body">
                 <div class="float-left">
@@ -43,7 +43,7 @@
             <h5>Das ist meines!</h5>
         </div>
         <div class="card-body">
-            {!! Form::open(array('route' => ['claim-frontend', $item->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+            {!! Form::open(array('route' => ['claim-found', $item->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback row {{ $errors->has('customer_name') ? ' has-error ' : '' }}">

@@ -8,7 +8,7 @@
             </div>
         @endif
 
-        <h3>Neueste Fundgegenstände</h3>
+        <h3>Unsere Angebote</h3>
 
         <br />
 
@@ -26,7 +26,7 @@
                                 <p class="card-text"><small class="text-muted">Eingestellt am {{ $item->created_at }}, aktualisiert am {{ $item->updated_at }}</small></p>
                             </div>
                             <img class="card-img-bottom" src="{{ $item->item_img ?? asset("/storage/placeholder-".random_int(1, 3).".png") }}" alt="Item image">
-                            <a href="{{ route('show-frontend', $item->id) }}" class="btn btn-primary stretched-link">Details ansehen</a>
+                            <a href="{{ route('show-sell', $item->id) }}" class="btn btn-primary stretched-link">Details ansehen</a>
                         </div>
                     </div>
                 @endforeach
