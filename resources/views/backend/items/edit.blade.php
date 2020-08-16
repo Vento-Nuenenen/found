@@ -114,7 +114,7 @@
                     {!! Form::label('item_price', 'Preis', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::text('item_price', old('item_price', $item->item_price / 100 ?? null), array('id' => 'item_price', 'class' => 'form-control', 'placeholder' => 'Preis', 'required')) !!}
+                            {!! Form::text('item_price', old('item_price', empty($item->item_price) ? null : $item->item_price / 100), array('id' => 'item_price', 'class' => 'form-control', 'placeholder' => 'Preis')) !!}
                             <div class="input-group-append">
                                 <label class="input-group-text" for="item_price">
                                     <i class="fa fa-money" aria-hidden="true"></i>

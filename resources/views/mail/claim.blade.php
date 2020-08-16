@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     <head>
-        <title>Lost & Found - Pfadi Nünenen</title>
+        <title>Lost &amp; Found - Pfadi N&#xFC;nenen</title>
 
         <!--[if !mso]><!-- -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,13 +70,13 @@
         </style>
 
         <style type="text/css">.hide_on_mobile { display: none !important;}
-            @media only screen and (min-width: 480px) { .hide_on_mobile { display: block !important;} }
+            @media only screen and (min-width: 480px) {.hide_on_mobile { display: block !important;}}
             .hide_section_on_mobile { display: none !important;}
-            @media only screen and (min-width: 480px) { .hide_section_on_mobile { display: table !important;} }
-            .hide_on_desktop { display: block !important;}
-            @media only screen and (min-width: 480px) { .hide_on_desktop { display: none !important;} }
-            .hide_section_on_desktop { display: table !important;}
-            @media only screen and (min-width: 480px) { .hide_section_on_desktop { display: none !important;} }
+            @media only screen and (min-width: 480px) {.hide_section_on_mobile {display: table !important;}}
+            .hide_on_desktop {display: block !important;}
+            @media only screen and (min-width: 480px) {.hide_on_desktop {display: none !important;}}
+            .hide_section_on_desktop {display: table !important;}
+            @media only screen and (min-width: 480px) {.hide_section_on_desktop {display: none !important;}}
 
             [owa] .mj-column-per-100 {
                 width: 100%!important;
@@ -105,69 +105,50 @@
     </head>
     <body style="background-color:#f6f7ec;">
         <div style="background-color:#f6f7ec;">
+            <!--[if mso | IE]>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
+                <tr>
+                    <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+            <![endif]-->
 
-    <!--[if mso | IE]>
-    <table
-        align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
-        <tr>
-            <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-    <![endif]-->
-
-    <div style="background:#212e49;background-color:#212e49;Margin:0px auto;max-width:600px;">
-
-        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#212e49;background-color:#212e49;width:100%;">
-            <tbody>
-            <tr>
-                <td style="direction:ltr;font-size:0px;padding:9px 0px 9px 0px;text-align:center;vertical-align:top;">
+            <div style="background:#212e49;background-color:#212e49;Margin:0px auto;max-width:600px;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#212e49;background-color:#212e49;width:100%;">
+                    <tbody>
+                        <tr>
+                            <td style="direction:ltr;font-size:0px;padding:9px 0px 9px 0px;text-align:center;vertical-align:top;">
                     <!--[if mso | IE]>
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-
                         <tr>
-
-                            <td
-                                class="" style="vertical-align:top;width:600px;"
-                            >
+                            <td class="" style="vertical-align:top;width:600px;">
                     <![endif]-->
 
                     <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-
                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
-
-                            <tbody><tr>
+                            <tbody>
+                            <tr>
                                 <td align="center" style="font-size:0px;padding:0px 0px 0px 0px;word-break:break-word;">
-
                                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
                                         <tbody>
                                         <tr>
                                             <td style="width:600px;">
-
                                                 <a href="https://pfadi-nuenenen.ch/" target="_blank" style="color: #FF00EC;">
-
-                                                    <img alt="Pfadi N&#xFC;nenen" height="auto" src="./images/1597249049.jpg" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="600">
-
+                                                    <img alt="Pfadi N&#xFC;nenen" height="auto" src="{{ $message->embed(storage_path('img/1597249049.jpg')) }}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="600">
                                                 </a>
-
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
-
                                 </td>
                             </tr>
-
                             <tr>
                                 <td align="center" style="font-size:0px;padding:10px 15px 10px 15px;word-break:break-word;">
-
                                     <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:11px;line-height:1.2;text-align:center;color:#000000;">
-                                        <h1 style="font-family: &apos;Cabin&apos;, sans-serif; text-align: center; line-height: 100%;"><span style="font-size: 24px; color: #ecf0f1;">Lost &amp; Found - Pfadi N&#xFC;nenen</span></h1>
+                                        <h1 style="font-family: &apos;Cabin&apos;, sans-serif; text-align: center; line-height: 100%;"><span style="font-size: 24px; color: #d75af4;">Lost &amp; Found - Pfadi N&#xFC;nenen</span></h1>
                                     </div>
-
                                 </td>
                             </tr>
-
                             <tr>
                                 <td align="left" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;">
-
                                     <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:11px;line-height:1.8;text-align:left;color:#F8F7F7;">
                                         <p>Hallo {{ $claim->customer_name }}</p>
                                         <p>&#xA0;</p>
@@ -178,7 +159,6 @@
                                         <p>Mit den besten Gr&#xFC;ssen</p>
                                         <p>Die N&#xFC;nenen-Leitenden</p>
                                     </div>
-
                                 </td>
                             </tr>
                             </tbody>
@@ -190,122 +170,96 @@
                     </tr>
                     </table>
                     <![endif]-->
+
                 </td>
             </tr>
             </tbody>
         </table>
-
     </div>
 
-
     <!--[if mso | IE]>
-    </td>
-    </tr>
+            </td>
+        </tr>
     </table>
-
-    <table
-        align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
-    >
+    <table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600">
         <tr>
             <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
     <![endif]-->
 
-
     <div style="background:#212e49;background-color:#212e49;Margin:0px auto;max-width:600px;">
-
         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#212e49;background-color:#212e49;width:100%;">
             <tbody>
             <tr>
                 <td style="direction:ltr;font-size:0px;padding:9px 0px 9px 0px;text-align:center;vertical-align:top;">
                     <!--[if mso | IE]>
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-
                         <tr>
-
-                            <td
-                                class="" style="vertical-align:top;width:360px;"
-                            >
+                            <td class="" style="vertical-align:top;width:360px;">
                     <![endif]-->
 
                     <div class="mj-column-per-60 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-
                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
-
-                            <tbody><tr>
+                            <tbody>
+                            <tr>
                                 <td align="left" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;">
-
                                     <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:11px;line-height:1.8;text-align:left;color:#FFFFFF;">
                                         <ul>
-                                            <li>ID: {{ $item->item_identifier }}</li>
-                                            <li>Was: {{ $item->item_name }}</li>
-                                            <li>Typ: {{ $item->group->group_name }}</li>
-                                            <li>Grösse: {{ $item->item_size }}</li>
-                                            <li>Farbe: {{ $item->item_color }}</li>
+                                            <li>Bezeichner: {{ $item->item_identifier ?? 'Keine Angabe' }}</li>
+                                            <li>Was: {{ $item->item_name ?? 'Keine Angabe' }}</li>
+                                            <li>Typ: {{ $item->group->group_name ?? ' Keine Angabe' }}</li>
+                                            <br />
+                                            <li>Grösse: {{ $item->item_size ?? 'Keine Angabe' }}</li>
+                                            <li>Farbe: {{ $item->item_color ?? 'Keine Angabe' }}</li>
                                         </ul>
                                     </div>
-
                                 </td>
                             </tr>
-
                             </tbody>
                         </table>
-
                     </div>
 
                     <!--[if mso | IE]>
                     </td>
-
-                    <td
-                        class="" style="vertical-align:top;width:240px;"
-                    >
+                    <td class="" style="vertical-align:top;width:240px;">
                     <![endif]-->
 
                     <div class="mj-column-per-40 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-
                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
-
-                            <tbody><tr>
+                            <tbody>
+                            <tr>
                                 <td align="center" style="font-size:0px;padding:0px 0px 0px 0px;word-break:break-word;">
-
                                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
                                         <tbody>
                                         <tr>
                                             <td style="width:240px;">
-
-                                                <img height="auto" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="240">
-
+                                                <img height="auto" src="{{ !empty($item->item_img) ? $message->embed(storage_path('app/public/img/' . $item->item_img)) : $message->embed(storage_path("app/public/placeholder-".random_int(1, 3).".png")) }}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="240">
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
-
                                 </td>
                             </tr>
-
-                            </tbody></table>
-
+                            </tbody>
+                        </table>
                     </div>
 
                     <!--[if mso | IE]>
                     </td>
-
                     </tr>
-
                     </table>
                     <![endif]-->
+
                 </td>
             </tr>
             </tbody>
         </table>
-
     </div>
 
-
-        <!--[if mso | IE]>
-                </td>
-            </tr>
-        </table>
-        <![endif]-->
+    <!--[if mso | IE]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
 
         </div>
     </body>

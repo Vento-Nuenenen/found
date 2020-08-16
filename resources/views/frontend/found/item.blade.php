@@ -30,7 +30,7 @@
                     </p>
                 </div>
                 <div>
-                    <img class="col-6 rounded float-right" src="{{ $item->item_img ? asset('storage/img/' . $item->img_name) : asset("/storage/placeholder-".random_int(1, 3).".png") }}" alt="Item image">
+                    <img class="col-6 rounded float-right" style="height: 20em; width: auto;" src="{{ !empty($item->item_img) ? asset('storage/img/' . $item->item_img) : asset("/storage/placeholder-".random_int(1, 3).".png") }}" alt="Item image">
                 </div>
             </div>
         </div>
