@@ -59,9 +59,9 @@ class ItemsController extends Controller
         $item_name = $request->input('item_name');
         $item_color = $request->input('item_color');
         $item_size = $request->input('item_size');
-        $item_returned = $request->input('item_returned');
+        $item_returned = !empty($request->input('item_returned')) ? true : false;
         $item_price = $request->input('item_price');
-        $item_sold = $request->input('item_sold');
+        $item_sold = !empty($request->input('item_sold')) ? true : false;
         $item_event = $request->input('item_event');
         $item_group = $request->input('item_group');
 
@@ -116,9 +116,9 @@ class ItemsController extends Controller
         $item_name = $request->input('item_name');
         $item_color = $request->input('item_color');
         $item_size = $request->input('item_size');
-        $item_returned = $request->input('item_returned');
+        $item_returned = !empty($request->input('item_returned')) ? true : false;
         $item_price = $request->input('item_price');
-        $item_sold = $request->input('item_sold');
+        $item_sold = !empty($request->input('item_sold')) ? true : false;
         $item_event = $request->input('item_event');
         $item_group = $request->input('item_group');
 

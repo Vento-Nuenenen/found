@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('item_color')->nullable();
             $table->string('item_size')->nullable();
             $table->boolean('item_returned')->default(false);
-            $table->double('item_price')->nullable();
+            $table->integer('item_price')->nullable();
 			$table->boolean('item_sold')->default(false);
             $table->string('item_img')->nullable();
             $table->foreignId('event_id')->nullable();

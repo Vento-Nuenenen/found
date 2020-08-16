@@ -79,7 +79,7 @@
                     {!! Form::label('item_size', 'Grösse', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::text('item_size', old('item_size', $item->item_color ?? null), array('id' => 'item_size', 'class' => 'form-control', 'placeholder' => 'Grösse', 'required')) !!}
+                            {!! Form::text('item_size', old('item_size', $item->item_size ?? null), array('id' => 'item_size', 'class' => 'form-control', 'placeholder' => 'Grösse', 'required')) !!}
                             <div class="input-group-append">
                                 <label class="input-group-text" for="item_size">
                                     <i class="fa fa-group" aria-hidden="true"></i>
@@ -111,13 +111,13 @@
                 </div>
 
                 <div class="form-group has-feedback row {{ $errors->has('item_price') ? ' has-error ' : '' }}">
-                    {!! Form::label('item_price', 'Grösse', array('class' => 'col-md-3 control-label')); !!}
+                    {!! Form::label('item_price', 'Preis', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::text('item_price', old('item_price', $item->item_price ?? null), array('id' => 'item_price', 'class' => 'form-control', 'placeholder' => 'Grösse', 'required')) !!}
+                            {!! Form::text('item_price', old('item_price', $item->item_price ?? null), array('id' => 'item_price', 'class' => 'form-control', 'placeholder' => 'Preis', 'required')) !!}
                             <div class="input-group-append">
                                 <label class="input-group-text" for="item_price">
-                                    <i class="fa fa-group" aria-hidden="true"></i>
+                                    <i class="fa fa-money" aria-hidden="true"></i>
                                 </label>
                             </div>
                         </div>

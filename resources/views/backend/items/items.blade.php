@@ -115,7 +115,7 @@
                                 {{ $item->group->group_name ?? '' }}
                             </td>
                             <td>
-                                <button onclick="location.href='{{ route('edit-items',$item->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>
+                                <button onclick="location.href='{{ route('edit-items',$item->id) }}'" class="btn btn-info ml-2"><span class="fa fa-edit"></span></button>
                                 <button onclick="location.href='{{ route('destroy-items',$item->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-remove"></span></button>
                             </td>
                         </tr>
