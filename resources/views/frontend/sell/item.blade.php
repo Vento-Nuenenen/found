@@ -17,6 +17,9 @@
             <div class="card-body">
                 <div class="float-left">
                     <p>
+                        <h5>Preis: {{ $item->item_price / 100 ?? 'Keine Angabe' }}</h5>
+                    </p>
+                    <p>
                         <h5>Farbe: {{ $item->item_color ?? 'Keine Angabe' }}</h5>
                     </p>
                     <p>
@@ -40,7 +43,7 @@
 
     <div class="card">
         <div class="card-header">
-            <h5>Das ist meines!</h5>
+            <h5>Anfrage senden</h5>
         </div>
         <div class="card-body">
             {!! Form::open(array('route' => ['claim-sell', $item->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}

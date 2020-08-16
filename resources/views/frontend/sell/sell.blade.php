@@ -19,7 +19,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">{{ $item->item_name }} - Referenz: {{ $item->item_identifier }}</h4>
-                                <p class="card-text">Preis: {{ $item->item_price }} CHF</p>
+                                <p class="card-text">Preis: {{ $item->item_price / 100 }} CHF</p>
                                 <p class="card-text">Farbe: {{ $item->item_color ?? 'Keine Angabe' }}</p>
                                 <p class="card-text">Grösse: {{ $item->item_size ?? 'Keine Angabe' }}</p>
                                 <p class="card-text">Gruppe: {{ $item->group->group_name ?? 'Keine Angabe' }}</p>

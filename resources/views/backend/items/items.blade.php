@@ -95,7 +95,7 @@
                                 @if($item->item_price == null)
                                     K.A.
                                 @else
-                                    {{ $item->item_price }}
+                                    {{ $item->item_price / 100 }} CHF
                                 @endif
                             </td>
                             <td>
