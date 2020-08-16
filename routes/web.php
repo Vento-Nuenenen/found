@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 });
 
 Route::get('/', 'Frontend\FoundController@index')->name('found');
-Route::get('/found{iid}', 'Frontend\FoundController@show')->name('show-found');
+Route::get('/found/{iid}', 'Frontend\FoundController@show')->name('show-found');
 Route::post('/found/{iid}/claim', 'Frontend\FoundController@claim')->name('claim-found');
 
 Route::get('/sell', 'Frontend\SellController@index')->name('sell');
