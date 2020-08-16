@@ -17,10 +17,10 @@
             <div class="card-body">
                 <div>
                     <p>
-                        <h4>Claim: {{ $claim->customer_name }}</h4>
+                        <h4>Claim: {{ $claim->customer_name ?? '-' }}</h4>
                     </p>
                     <p>
-                        <h4>E-Mail: {{ $claim->customer_mail }}</h4>
+                        <h4>E-Mail: {{ $claim->customer_mail ?? '-' }}</h4>
                     </p>
                 </div>
                 <br />
@@ -28,16 +28,16 @@
                 <br />
                 <div class="float-left">
                     <p>
-                        <h5>Farbe: {{ $claim->item->item_color ?? 'Keine Angabe' }}</h5>
+                        <h5>Farbe: {{ $claim->item->item_color ?? '-' }}</h5>
                     </p>
                     <p>
-                        <h5>Grösse: {{ $claim->item->item_size ?? 'Keine Angabe' }}</h5>
+                        <h5>Grösse: {{ $claim->item->item_size ?? '-' }}</h5>
                     </p>
                     <p>
-                        <h5>Event: {{ $claim->item->event->event_name ?? 'Keine Angabe' }}</h5>
+                        <h5>Event: {{ $claim->item->event->event_name ?? '-' }}</h5>
                     </p>
                     <p>
-                        <h5>Gruppe: {{ $claim->item->group->group_name ?? 'Keine Angabe' }}</h5>
+                        <h5>Gruppe: {{ $claim->item->group->group_name ?? '-' }}</h5>
                     </p>
                 </div>
                 <div class="float-right">

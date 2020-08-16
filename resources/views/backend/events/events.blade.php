@@ -52,10 +52,10 @@
                     @foreach($events as $event)
                         <tr>
                             <td>
-                                {{ $event->event_name }}
+                                {{ $event->event_name ?? '-' }}
                             </td>
                             <td>
-                                {{ $event->event_date }}
+                                {{ $event->event_date ?? '-' }}
                             </td>
                             <td>
                                 @if($event->event_active == true)

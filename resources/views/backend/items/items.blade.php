@@ -76,13 +76,13 @@
                                 {{ $item->item_identifier ?? '' }}
                             </td>
                             <td>
-                                {{ $item->item_name }}
+                                {{ $item->item_name ?? '-' }}
                             </td>
                             <td>
-                                {{ $item->item_color }}
+                                {{ $item->item_color ?? '-' }}
                             </td>
                             <td>
-                                {{ $item->item_size }}
+                                {{ $item->item_size ?? '-' }}
                             </td>
                             <td>
                                 @if($item->item_returned == true)

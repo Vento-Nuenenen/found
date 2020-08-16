@@ -40,19 +40,19 @@
                         @foreach($claims as $claim)
                             <tr>
                                 <td>
-                                    {{ $claim->customer_name }}
+                                    {{ $claim->customer_name ?? '-' }}
                                 </td>
                                 <td>
-                                    {{ $claim->customer_mail }}
+                                    {{ $claim->customer_mail ?? '-' }}
                                 </td>
                                 <td>
-                                    {{ $claim->item->item_identifier }}
+                                    {{ $claim->item->item_identifier ?? '-' }}
                                 </td>
                                 <td>
-                                    {{ $claim->item->item_name }}
+                                    {{ $claim->item->item_name ?? '-' }}
                                 </td>
                                 <td>
-                                    {{ $claim->item->item_color }}
+                                    {{ $claim->item->item_color ?? '-' }}
                                 </td>
                                 <td>
                                     <button onclick="location.href='{{ route('show-claims', $claim->id) }}'" class="btn btn-success ml-2"><span class="fa fa-eye"></span></button>

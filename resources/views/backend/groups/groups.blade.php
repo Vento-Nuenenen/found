@@ -49,7 +49,7 @@
                         @foreach($groups as $group)
                             <tr>
                                 <td>
-                                    {{ $group->group_name }}
+                                    {{ $group->group_name ?? '-' }}
                                 </td>
                                 <td>
                                     @if($group->group_active == true)
