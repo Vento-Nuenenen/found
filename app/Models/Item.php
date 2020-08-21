@@ -16,9 +16,9 @@ class Item extends Model{
         'item_price',
         'for_sale',
         'sold',
-        'fk_events',
-        'fk_groups',
-        'fk_customers',
+        'event_id',
+        'group_id',
+        'customer_id',
     ];
 
     public function group(){
