@@ -168,9 +168,9 @@
                         <div class="input-group">
                             <select class="form-control selectpicker" data-style="btn-primary" name="item_group" id="item_group">
                                 <option value="">Gruppe wählen</option>
-                                @if ($users)
-                                    @foreach($users as $user)
-                                        <option value="{{ $user->id }}">{{ empty($user->scout_name) ? $user->first_name . ' ' . $user->last_name : $user->first_name . ' ' . $user->last_name . ' / ' . $user->scout_name }}</option>
+                                @if ($item_groups)
+                                    @foreach($item_groups as $group)
+                                        <option value="{{ $group->id }}">{{ $group->group_name }}</option>
                                     @endforeach
                                 @endif
                             </select>
