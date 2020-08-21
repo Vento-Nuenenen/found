@@ -50,6 +50,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::any('/claims/show/{cid}', 'Backend\ClaimedController@show')->name('show-claims');
     Route::any('/claims/update/{cid}', 'Backend\ClaimedController@update')->name('update-claims');
     Route::get('/claims/destroy/{cid}', 'Backend\ClaimedController@destroy')->name('destroy-claims');
+
+    Route::resource('profile', 'Backend\ProfileController')->only('index', 'update');
 });
 
 Route::get('/', 'Frontend\FoundController@index')->name('found');
