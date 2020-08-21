@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ClaimedController extends Controller
@@ -18,8 +19,9 @@ class ClaimedController extends Controller
     public function show($cid)
     {
         $claim = Customer::find($cid);
+        $users = User::all();
 
-        return view('backend.claimed.show', ['claim' => $claim]);
+        return view('backend.claimed.show', ['claim' => $claim, 'users' => $users]);
     }
 
     public function update($cid, Request $request)

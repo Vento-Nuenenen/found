@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendClaimInfoMail;
 use App\Jobs\SendClaimMail;
 use App\Models\Group;
 use App\Models\Item;
@@ -54,8 +55,11 @@ class SellController extends Controller
         $item->customer_id = $claim->id;
         $item->save();
 
-        $mail = new SendClaimMail($claim, $item);
-        $mail->handle();
+        $customerMail = new SendClaimMail($claim, $item);
+        $customerMail->handle();
+
+        $infoMail = new SendClaimInfoMail($claim, $item);
+        $infoMail->handle();
 
         return redirect('/')->with('message', 'Der Gegenstand wurde als Verloren markiert. Wir melden uns bei dir.');
     }
