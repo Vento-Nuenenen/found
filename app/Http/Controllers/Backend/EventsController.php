@@ -19,7 +19,8 @@ class EventsController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         if ($request->input('search') == null) {
             $events = Event::all();
         } else {
@@ -37,7 +38,8 @@ class EventsController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function create(){
+    public function create()
+    {
         return view('backend.events.add');
     }
 
@@ -48,7 +50,8 @@ class EventsController extends Controller
      *
      * @return RedirectResponse
      */
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $group_name = $request->input('group_name');
         $group_active = $request->input('group_active');
 
@@ -67,7 +70,8 @@ class EventsController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function edit($eid){
+    public function edit($eid)
+    {
         $groups = Group::where('id', '=', $eid)->first();
 
         return view('backend.groups.edit', ['groups' => $groups]);
@@ -81,7 +85,8 @@ class EventsController extends Controller
      *
      * @return RedirectResponse
      */
-    public function update(Request $request, $eid){
+    public function update(Request $request, $eid)
+    {
         $event_name = $request->input('event_name');
         $event_date = $request->input('event_date');
 
@@ -100,7 +105,8 @@ class EventsController extends Controller
      *
      * @return RedirectResponse
      */
-    public function destroy($eid){
+    public function destroy($eid)
+    {
         DB::table('events')->where('id', '=', $eid)->delete();
 
         return redirect()->back()->with('message', 'Event erfolgreich gelöscht.');

@@ -37,7 +37,8 @@ class GroupsController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function create(){
+    public function create()
+    {
         return view('backend.groups.add');
     }
 
@@ -48,7 +49,8 @@ class GroupsController extends Controller
      *
      * @return RedirectResponse
      */
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $group_name = $request->input('group_name');
         $group_active = $request->input('group_active') == "on";
 
@@ -67,7 +69,8 @@ class GroupsController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function edit($gid){
+    public function edit($gid)
+    {
         $groups = Group::where('id', '=', $gid)->first();
 
         return view('backend.groups.edit', ['groups' => $groups]);
@@ -81,7 +84,8 @@ class GroupsController extends Controller
      *
      * @return RedirectResponse
      */
-    public function update(Request $request, $gid){
+    public function update(Request $request, $gid)
+    {
         $group_name = $request->input('group_name');
         $group_active = $request->input('group_active') == 'on';
 
@@ -100,7 +104,8 @@ class GroupsController extends Controller
      *
      * @return RedirectResponse
      */
-    public function destroy($gid){
+    public function destroy($gid)
+    {
         DB::table('groups')->where('id', '=', $gid)->delete();
 
         return redirect()->back()->with('message', 'Gruppe erfolgreich gelöscht.');

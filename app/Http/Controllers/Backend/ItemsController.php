@@ -20,7 +20,8 @@ class ItemsController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         if ($request->input('search') == null) {
             $items = Item::paginate(20);
         } else {
@@ -40,7 +41,8 @@ class ItemsController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function create(){
+    public function create()
+    {
         $item_events = Event::all();
         $item_groups = Group::all();
 
@@ -54,7 +56,8 @@ class ItemsController extends Controller
      *
      * @return RedirectResponse
      */
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $item_identifier = $request->input('item_identifier');
         $item_name = $request->input('item_name');
         $item_color = $request->input('item_color');
@@ -65,10 +68,10 @@ class ItemsController extends Controller
         $item_event = $request->input('item_event');
         $item_group = $request->input('item_group');
 
-        if($request->file('item_img')){
+        if ($request->file('item_img')) {
             $img_name = time() .'.' . $request->file('item_img')->extension();
             $request->file('item_img')->move(storage_path('app/public/img'), $img_name);
-        }else{
+        } else {
             $img_name = null;
         }
 
@@ -95,7 +98,8 @@ class ItemsController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function edit($iid){
+    public function edit($iid)
+    {
         $item = Item::where('id', '=', $iid)->first();
         $item_events = Event::all();
         $item_groups = Group::all();
@@ -111,7 +115,8 @@ class ItemsController extends Controller
      *
      * @return RedirectResponse
      */
-    public function update(Request $request, $iid){
+    public function update(Request $request, $iid)
+    {
         $item_identifier = $request->input('item_identifier');
         $item_name = $request->input('item_name');
         $item_color = $request->input('item_color');
@@ -122,10 +127,10 @@ class ItemsController extends Controller
         $item_event = $request->input('item_event');
         $item_group = $request->input('item_group');
 
-        if($request->file('item_img')){
+        if ($request->file('item_img')) {
             $img_name = time() .'.' . $request->file('item_img')->extension();
             $request->file('item_img')->move(storage_path('app/public/img'), $img_name);
-        }else{
+        } else {
             $img_name = null;
         }
 
@@ -138,7 +143,7 @@ class ItemsController extends Controller
         $item->item_price = $item_price;
         $item->item_sold = $item_sold;
 
-        if($img_name != null){
+        if ($img_name != null) {
             $item->item_img = $img_name;
         }
 
@@ -157,7 +162,8 @@ class ItemsController extends Controller
      *
      * @return RedirectResponse
      */
-    public function destroy($iid){
+    public function destroy($iid)
+    {
         DB::table('items')->where('id', '=', $iid)->delete();
 
         return redirect()->back()->with('message', 'Item erfolgreich gelöscht.');

@@ -9,9 +9,11 @@ use App\Models\Item;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class FoundController extends Controller{
-    public function index($group_filter = null, $event_filter = null){
-        if($group_filter != null && $event_filter != null){
+class FoundController extends Controller
+{
+    public function index($group_filter = null, $event_filter = null)
+    {
+        if ($group_filter != null && $event_filter != null) {
             $items = Item::with(['group', 'event'])->where([
                 ['item_price', null],
                 ['item_returned', false],
@@ -19,21 +21,21 @@ class FoundController extends Controller{
                 ['group_name', 'LIKE', $group_filter],
                 ['event_name', 'LIKE', $event_filter],
             ])->paginate(20);
-        }else if($group_filter != null){
+        } elseif ($group_filter != null) {
             $items = Item::with(['group', 'event'])->where([
                 ['item_price', null],
                 ['item_returned', false],
                 ['customer_id', null],
                 ['group_name', 'LIKE', $group_filter],
             ])->paginate(20);
-        }else if($event_filter != null){
+        } elseif ($event_filter != null) {
             $items = Item::with(['group', 'event'])->where([
                 ['item_price', null],
                 ['item_returned', false],
                 ['customer_id', null],
                 ['event_name', 'LIKE', $event_filter],
             ])->paginate(20);
-        }else{
+        } else {
             $items = Item::with(['group', 'event'])->where([
                 ['item_price', null],
                 ['item_returned', false],
@@ -44,13 +46,15 @@ class FoundController extends Controller{
         return view('frontend.found.found', ['items' => $items]);
     }
 
-    public function show($iid){
+    public function show($iid)
+    {
         $item = Item::with(['group', 'event'])->findOrFail($iid);
 
         return view('frontend.found.item', ['item'=> $item]);
     }
 
-    public function claim(Request $request, $iid){
+    public function claim(Request $request, $iid)
+    {
         $customer_name = $request->input('customer_name');
         $customer_mail = $request->input('customer_mail');
 

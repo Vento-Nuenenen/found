@@ -14,10 +14,10 @@ class GroupsSeeder extends Seeder
     {
         $groups_container = ['Kopfbedeckung', 'Oberteile', 'Unterteile', 'Füsse', 'Accessoires', 'Anderes'];
 
-        foreach($groups_container as $group_name){
+        foreach ($groups_container as $group_name) {
             $group = Group::where('group_name', '=', $group_name)->first();
 
-            if($group == null){
+            if ($group == null) {
                 $group = Group::create(['group_name' => $group_name, 'group_active' => true]);
                 $group->save();
             }

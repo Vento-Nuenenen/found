@@ -9,9 +9,11 @@ use App\Models\Item;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
-class SellController extends Controller{
-    public function index($group_filter = null){
-        if($group_filter != null){
+class SellController extends Controller
+{
+    public function index($group_filter = null)
+    {
+        if ($group_filter != null) {
             $items = Item::with(['group', 'event'])->whereNotNull('item_price')
                 ->where([
                     ['item_price', 'IS NOT', null],
@@ -19,7 +21,7 @@ class SellController extends Controller{
                     ['customer_id', null],
                     ['group_name', 'LIKE', $group_filter],
                 ])->paginate(20);
-        }else{
+        } else {
             $items = Item::with(['group', 'event'])->whereNotNull('item_price')
                 ->where([
                     ['item_sold', false],
@@ -30,13 +32,15 @@ class SellController extends Controller{
         return view('frontend.sell.sell', ['items' => $items]);
     }
 
-    public function show($iid){
+    public function show($iid)
+    {
         $item = Item::with(['group', 'event'])->findOrFail($iid);
 
         return view('frontend.sell.item', ['item'=> $item]);
     }
 
-    public function claim(Request $request, $iid){
+    public function claim(Request $request, $iid)
+    {
         $customer_name = $request->input('customer_name');
         $customer_mail = $request->input('customer_mail');
 

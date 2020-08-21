@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model{
+class Item extends Model
+{
     protected $table = 'items';
 
     protected $fillable = [
@@ -21,15 +22,18 @@ class Item extends Model{
         'customer_id',
     ];
 
-    public function group(){
+    public function group()
+    {
         return $this->belongsTo('App\Models\Group');
     }
 
-    public function event(){
+    public function event()
+    {
         return $this->belongsTo('App\Models\Event');
     }
 
-    public function claim(){
+    public function claim()
+    {
         return $this->belongsTo('App\Models\Customer');
     }
 }
