@@ -14,14 +14,7 @@
 
         <h4>Filtern:</h4>
         <div>
-            <select class="form-control selectpicker" data-style="btn-primary" name="item_group" id="item_group">
-                <option value="">Gruppe wählen</option>
-                @if ($item_groups)
-                    @foreach($item_groups as $group)
-                        <option value="{{ $group->id }}">{{ $group->group_name }}</option>
-                    @endforeach
-                @endif
-            </select>
+
         </div>
         <br />
 

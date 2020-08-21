@@ -17,6 +17,25 @@
             <div class="card-body">
                 <div>
                     <p>
+                        <form method="post" action="{{ route('update-claims', $claim->id) }}">
+                            @csrf
+                            <input type="hidden" name="action" value="assign">
+                            <select class="form-control selectpicker" data-style="btn-primary" name="item_group" id="item_group">
+                                <option value="">Benutzer wählen</option>
+                                @if ($users)
+                                    @foreach($users as $user)
+                                        <option value="{{ $user->id }}">{{ empty($user->scout_name) ? $user->first_name . ' ' . $user->last_name : $user->first_name . ' ' . $user->last_name . ' / ' . $user->scout_name }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
+                        </form>
+                    </p>
+                </div>
+                <br />
+                <hr />
+                <br />
+                <div>
+                    <p>
                         <h4>Claim: {{ $claim->customer_name ?? '-' }}</h4>
                     </p>
                     <p>
