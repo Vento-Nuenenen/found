@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 7.25.0.
+ * Generated for Laravel 7.26.1.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -6012,6 +6012,7 @@
      * @method static \Illuminate\Http\Client\PendingRequest stub(callable $callback)
      * @method static \Illuminate\Http\Client\PendingRequest timeout(int $seconds)
      * @method static \Illuminate\Http\Client\PendingRequest withBasicAuth(string $username, string $password)
+     * @method static \Illuminate\Http\Client\PendingRequest withBody(resource|string $content, string $contentType)
      * @method static \Illuminate\Http\Client\PendingRequest withCookies(array $cookies, string $domain)
      * @method static \Illuminate\Http\Client\PendingRequest withDigestAuth(string $username, string $password)
      * @method static \Illuminate\Http\Client\PendingRequest withHeaders(array $headers)
@@ -7758,57 +7759,6 @@
                         return $instance->setConnectionName($name);
         }
                     /**
-         * Release a reserved job back onto the queue.
-         *
-         * @param string $queue
-         * @param \Illuminate\Queue\Jobs\DatabaseJobRecord $job
-         * @param int $delay
-         * @return mixed 
-         * @static 
-         */ 
-        public static function release($queue, $job, $delay)
-        {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        return $instance->release($queue, $job, $delay);
-        }
-                    /**
-         * Delete a reserved job from the queue.
-         *
-         * @param string $queue
-         * @param string $id
-         * @return void 
-         * @throws \Throwable
-         * @static 
-         */ 
-        public static function deleteReserved($queue, $id)
-        {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        $instance->deleteReserved($queue, $id);
-        }
-                    /**
-         * Get the queue or return the default.
-         *
-         * @param string|null $queue
-         * @return string 
-         * @static 
-         */ 
-        public static function getQueue($queue)
-        {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        return $instance->getQueue($queue);
-        }
-                    /**
-         * Get the underlying database instance.
-         *
-         * @return \Illuminate\Database\Connection 
-         * @static 
-         */ 
-        public static function getDatabase()
-        {
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
-                        return $instance->getDatabase();
-        }
-                    /**
          * Get the retry delay for an object-based queue handler.
          *
          * @param mixed $job
@@ -7817,7 +7767,7 @@
          */ 
         public static function getJobRetryDelay($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\SyncQueue $instance */
                         return $instance->getJobRetryDelay($job);
         }
                     /**
@@ -7829,7 +7779,7 @@
          */ 
         public static function getJobExpiration($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\SyncQueue $instance */
                         return $instance->getJobExpiration($job);
         }
                     /**
@@ -7841,7 +7791,7 @@
          */ 
         public static function createPayloadUsing($callback)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        \Illuminate\Queue\DatabaseQueue::createPayloadUsing($callback);
+                        \Illuminate\Queue\SyncQueue::createPayloadUsing($callback);
         }
                     /**
          * Set the IoC container instance.
@@ -7852,7 +7802,7 @@
          */ 
         public static function setContainer($container)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\DatabaseQueue $instance */
+                        /** @var \Illuminate\Queue\SyncQueue $instance */
                         $instance->setContainer($container);
         }
          
@@ -9787,6 +9737,19 @@
                         return $instance->hasAny($keys);
         }
                     /**
+         * Apply the callback if the request contains the given input item key.
+         *
+         * @param string $key
+         * @param callable $callback
+         * @return $this|mixed 
+         * @static 
+         */ 
+        public static function whenHas($key, $callback)
+        {
+                        /** @var \Illuminate\Http\Request $instance */
+                        return $instance->whenHas($key, $callback);
+        }
+                    /**
          * Determine if the request contains a non-empty value for an input item.
          *
          * @param string|array $key
@@ -9821,6 +9784,19 @@
         {
                         /** @var \Illuminate\Http\Request $instance */
                         return $instance->anyFilled($keys);
+        }
+                    /**
+         * Apply the callback if the request contains a non-empty value for the given input item key.
+         *
+         * @param string $key
+         * @param callable $callback
+         * @return $this|mixed 
+         * @static 
+         */ 
+        public static function whenFilled($key, $callback)
+        {
+                        /** @var \Illuminate\Http\Request $instance */
+                        return $instance->whenFilled($key, $callback);
         }
                     /**
          * Determine if the request is missing a given input item key.
@@ -18043,7 +18019,7 @@ namespace  {
             }
              
                 /**
-             * Adds a or where condition using row values.
+             * Adds an or where condition using row values.
              *
              * @param array $columns
              * @param string $operator
@@ -18074,7 +18050,7 @@ namespace  {
             }
              
                 /**
-             * Add a "or where JSON contains" clause to the query.
+             * Add an "or where JSON contains" clause to the query.
              *
              * @param string $column
              * @param mixed $value
@@ -18103,7 +18079,7 @@ namespace  {
             }
              
                 /**
-             * Add a "or where JSON not contains" clause to the query.
+             * Add an "or where JSON not contains" clause to the query.
              *
              * @param string $column
              * @param mixed $value
@@ -18133,7 +18109,7 @@ namespace  {
             }
              
                 /**
-             * Add a "or where JSON length" clause to the query.
+             * Add an "or where JSON length" clause to the query.
              *
              * @param string $column
              * @param mixed $operator
@@ -18205,7 +18181,7 @@ namespace  {
             }
              
                 /**
-             * Add a "or having" clause to the query.
+             * Add an "or having" clause to the query.
              *
              * @param string $column
              * @param string|null $operator
