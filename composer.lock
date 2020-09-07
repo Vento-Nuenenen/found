@@ -371,6 +371,20 @@
                 "uppercase",
                 "words"
             ],
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finflector",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-29T15:13:26+00:00"
         },
         {
@@ -432,6 +446,20 @@
                 "lexer",
                 "parser",
                 "php"
+            ],
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Flexer",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-05-25T17:44:05+00:00"
         },
@@ -668,6 +696,12 @@
                 "cors",
                 "crossdomain",
                 "laravel"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/barryvdh",
+                    "type": "github"
+                }
             ],
             "time": "2020-05-31T07:30:16+00:00"
         },
@@ -4800,35 +4834,36 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.4.2",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "91ee8b3acf0d72a4937f4855bd245acbda9910ac"
+                "reference": "1180dca59006aa4e58fed9057322c3861b3d1c23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/91ee8b3acf0d72a4937f4855bd245acbda9910ac",
-                "reference": "91ee8b3acf0d72a4937f4855bd245acbda9910ac",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/1180dca59006aa4e58fed9057322c3861b3d1c23",
+                "reference": "1180dca59006aa4e58fed9057322c3861b3d1c23",
                 "shasum": ""
             },
             "require": {
-                "illuminate/routing": "^5.5|^6|^7",
-                "illuminate/session": "^5.5|^6|^7",
-                "illuminate/support": "^5.5|^6|^7",
+                "illuminate/routing": "^6|^7|^8",
+                "illuminate/session": "^6|^7|^8",
+                "illuminate/support": "^6|^7|^8",
                 "maximebf/debugbar": "^1.16.3",
-                "php": ">=7.0",
-                "symfony/debug": "^3|^4|^5",
-                "symfony/finder": "^3|^4|^5"
+                "php": ">=7.2",
+                "symfony/debug": "^4.3|^5",
+                "symfony/finder": "^4.3|^5"
             },
             "require-dev": {
-                "orchestra/testbench": "^3.5|^4.0|^5.0",
-                "phpunit/phpunit": "^6.0|^7.0|^8.5|^9.0"
+                "orchestra/testbench-dusk": "^4|^5|^6",
+                "phpunit/phpunit": "^8.5|^9.0",
+                "squizlabs/php_codesniffer": "^3.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.5-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -4871,7 +4906,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-30T07:08:17+00:00"
+            "time": "2020-08-30T07:03:31+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -5707,6 +5742,20 @@
             "keywords": [
                 "constructor",
                 "instantiate"
+            ],
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finstantiator",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-05-29T17:27:14+00:00"
         },
