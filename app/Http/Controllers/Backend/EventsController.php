@@ -52,12 +52,14 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        $group_name = $request->input('group_name');
-        $group_active = $request->input('group_active');
+        $event_name = $request->input('event_name');
+        $event_date = $request->input('event_date');
+        $event_active = !empty($request->input('event_active')) ? true : false;
 
-        Group::create([
-            'group_name' => $group_name,
-            'group_active' => $group_active,
+        Event::create([
+            'event_name' => $event_name,
+            'event_date' => $event_date,
+            'event_active' => $event_active
         ]);
 
         return redirect()->back()->with('message', 'Event wurde erstellt.');
@@ -72,9 +74,9 @@ class EventsController extends Controller
      */
     public function edit($eid)
     {
-        $groups = Group::where('id', '=', $eid)->first();
+        $event = Event::where('id', '=', $eid)->first();
 
-        return view('backend.groups.edit', ['groups' => $groups]);
+        return view('backend.events.edit', ['event' => $event]);
     }
 
     /**
@@ -89,10 +91,12 @@ class EventsController extends Controller
     {
         $event_name = $request->input('event_name');
         $event_date = $request->input('event_date');
+        $event_active = !empty($request->input('event_active')) ? true : false;
 
         DB::table('events')->where('id', '=', $eid)->update([
             'event_name' => $event_name,
-            'event_date' => $event_date
+            'event_date' => $event_date,
+            'event_active' => $event_active
         ]);
 
         return redirect()->back()->with('message', 'Event wurde aktualisiert.');

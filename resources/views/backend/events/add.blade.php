@@ -12,40 +12,59 @@
             <div class="card-header">
                 <h5 class="float-left">Event erstellen</h5>
 
-                <a href="{{ route('groups') }}" class="float-right">Zurück zu Events</a>
+                <a href="{{ route('events') }}" class="float-right">Zurück zu Events</a>
             </div>
             <div class="card-body">
-                {!! Form::open(array('route' => 'store-groups', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
+                {!! Form::open(array('route' => 'store-events', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                 {!! csrf_field() !!}
 
-                <div class="form-group has-feedback row {{ $errors->has('group_name') ? ' has-error ' : '' }}">
-                    {!! Form::label('group_name', 'Gruppenname', array('class' => 'col-md-3 control-label')); !!}
+                <div class="form-group has-feedback row {{ $errors->has('event_name') ? ' has-error ' : '' }}">
+                    {!! Form::label('event_name', 'Eventname', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            {!! Form::text('group_name', NULL, array('id' => 'group_name', 'class' => 'form-control', 'placeholder' => 'Gruppenname', 'required')) !!}
+                            {!! Form::text('event_name', NULL, array('id' => 'event_name', 'class' => 'form-control', 'placeholder' => 'Eventname', 'required')) !!}
                             <div class="input-group-append">
-                                <label class="input-group-text" for="group_name">
+                                <label class="input-group-text" for="event_name">
                                     <i class="fa fa-group" aria-hidden="true"></i>
                                 </label>
                             </div>
                         </div>
-                        @if ($errors->has('group_name'))
+                        @if ($errors->has('event_name'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('group_name') }}</strong>
+                                <strong>{{ $errors->first('event_name') }}</strong>
                             </span>
                         @endif
                     </div>
                 </div>
 
-                <div class="form-group has-feedback row {{ $errors->has('group_logo') ? ' has-error ' : '' }}">
-                    {!! Form::label('group_logo', 'Gruppenlogo', array('class' => 'col-md-3 control-label')); !!}
+                <div class="form-group has-feedback row {{ $errors->has('event_date') ? ' has-error ' : '' }}">
+                    {!! Form::label('event_date', 'Eventdatum', array('class' => 'col-md-3 control-label')); !!}
                     <div class="col-md-9">
                         <div class="input-group">
-                            <input type="file" accept="image/*" id="group_logo" name="group_logo" />
+                            {!! Form::date('event_date', NULL, array('id' => 'group_name', 'class' => 'form-control', 'placeholder' => 'Eventdatum', 'required')) !!}
+                            <div class="input-group-append">
+                                <label class="input-group-text" for="event_date">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                </label>
+                            </div>
                         </div>
-                        @if ($errors->has('group_logo'))
+                        @if ($errors->has('event_date'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('group_logo') }}</strong>
+                                <strong>{{ $errors->first('event_date') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="form-group has-feedback row {{ $errors->has('event_active') ? ' has-error ' : '' }}">
+                    {!! Form::label('event_active', 'Aktiv?', array('class' => 'col-md-3 control-label')); !!}
+                    <div class="col-md-9">
+                        <div class="input-group">
+                            <input id="event_active" name="group_active" type="checkbox" data-toggle="toggle" data-on="Ja" data-off="Nein" data-onstyle="success" data-offstyle="danger" checked>
+                        </div>
+                        @if ($errors->has('event_active'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('event_active') }}</strong>
                             </span>
                         @endif
                     </div>
