@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendClaimInfoMail;
 use App\Jobs\SendClaimMail;
+use App\Models\Event;
 use App\Models\Group;
 use App\Models\Item;
 use App\Models\Customer;
@@ -14,6 +15,9 @@ class FoundController extends Controller
 {
     public function index($group_filter = null, $event_filter = null)
     {
+        $groups = Group::where('group_active', true)->get();
+        $events = Event::where('event_active', true)->get();
+
         if ($group_filter != null && $event_filter != null) {
             $items = Item::with(['group', 'event'])->where([
                 ['item_price', null],
@@ -44,7 +48,7 @@ class FoundController extends Controller
             ])->paginate(20);
         }
 
-        return view('frontend.found.found', ['items' => $items]);
+        return view('frontend.found.found', ['items' => $items, 'events' => $events, 'groups' => $groups]);
     }
 
     public function show($iid)

@@ -14,8 +14,31 @@
 
         <h4>Filtern:</h4>
         <div>
+            <div class="dropdown float-left">
+                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-filter">&nbsp; Anlass</i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    @foreach($events as $event)
+                        <a class="dropdown-item" href="#">{{ $event->event_name }}</a>
+                    @endforeach
+                </div>
+            </div>
 
+            <div class="dropdown float-left ml-5">
+                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-filter">&nbsp; Kategorie</i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    @foreach($groups as $group)
+                        <a class="dropdown-item">{{ $group->group_name }}</a>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
         </div>
+
         <br />
 
         <div class="row">
