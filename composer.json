@@ -12,7 +12,7 @@
         "return"
     ],
     "require": {
-        "php": "^7.3.0",
+        "php": "^7.3 || 8.0",
         "anhskohbo/no-captcha": "3.3.0",
         "fideloper/proxy": "4.4.1",
         "fruitcake/laravel-cors": "2.0.3",
