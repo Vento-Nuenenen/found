@@ -84,8 +84,6 @@
                 </div>
             </div>
 
-            @captcha
-
             {!! Form::button('Anfrage senden', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right col-12','type' => 'submit' )) !!}
             {!! Form::close() !!}
         </div>
